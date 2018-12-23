@@ -39,7 +39,7 @@ news_limit: 5
 
 # Timezone
 lang: en
-timezone: Asia/Shanghai
+timezone: America/Chicago
 
 # => Author and Social
 ##############################
