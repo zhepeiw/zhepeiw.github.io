@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 permalink: /publications/
 type: article
 title: Publications
@@ -7,9 +7,11 @@ description: Publications by categories in reversed chronological order. Generat
 years: [2018]
 ---
 
-_{{page.description}}_
+{{page.description}}
 
-_Remark: <sup>#</sup> indicates equal contributions_
+_Remark: <sup>#</sup> indicates equal contribution_
+
+<h2> </h2>
 
 {% for y in page.years %}
   <h3 class="article-list__group-header">{{y}}</h3>

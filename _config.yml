@@ -213,8 +213,7 @@ defaults:
 scholar:
 
   last_name: Wang
-  first_name: Zhepei
-  first_init: Z.
+  first_names: ['Zhepei', 'Z.']
 
   style: apa
   locale: en
