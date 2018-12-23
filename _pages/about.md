@@ -20,7 +20,7 @@ aside:
 
 ## CV
 
-Feel free to checkout my <a href="/assets/cv.pdf"> CV </a> and my <a href="https://www.linkedin.com/in/{{ _author.linkedin }}"> LinkedIn </a> profile.
+Feel free to checkout my <a href="/assets/cv.pdf" target="_blank"> CV </a> and my <a href="https://www.linkedin.com/in/{{ _author.linkedin}}" target="_blank"> LinkedIn </a> profile.
 
 
 ## Contact
