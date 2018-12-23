@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/news/announcement_2/</loc>
+<lastmod>2018-05-12T04:11:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/news/announcement_1/</loc>
+<lastmod>2018-05-14T03:59:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2018/12/23/welcome.html</loc>
+<lastmod>2018-12-23T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/about/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/archive.html</loc>
+</url>
+<url>
+<loc>http://localhost:4000/blog/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/publications/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/assets/cv.pdf</loc>
+<lastmod>2018-12-23T16:33:02+08:00</lastmod>
+</url>
+</urlset>
