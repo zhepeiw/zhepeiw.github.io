@@ -1,0 +1,16 @@
+
+<div class="layout--archive js-all">
+  <div class="js-result layout--archive__result d-none">
+    <h2>News</h2>
+    {% if site.news  %}
+      {%- include news-list.html articles=site.news type='brief' show_info=true reverse=true-%}
+    {% else %}
+    <p>No news so far...</p>
+    {% endif %}
+  </div>
+</div>
+
+
+<script>
+  {%- include scripts/news.js -%}
+</script>
