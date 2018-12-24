@@ -15,10 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Zhepei Wang's Site
 head_caption: Zhepei Wang 
-description: 
-
-twitter_username: jekyllrb
-github_username:  jekyll
+description: Zhepei's homepage
 
 # More Site settings
 text_skin: orange # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
@@ -47,9 +44,9 @@ author:
   type      : # "person" (default), "organization"
   name      : Zhepei Wang
   url       :
-  avatar    : assets/images/haunter.jpg # path or url of avatar image
+  avatar    : assets/images/profile_small.png # path or url of avatar image
   bio       : 
-  email     : zhepeiw03@gmail.com
+  email     :
   scholar	  :
   facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
   twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name

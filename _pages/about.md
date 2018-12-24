@@ -25,8 +25,8 @@ Feel free to checkout my <a href="/assets/cv.pdf" target="_blank"> CV </a> and m
 
 ## Contact
 
-* email: zhepeiw2 AT illinois DOT edu 
-* office: 3332 Siebel Center for Computer Science,  
+* Email: zhepeiw2 AT illinois DOT edu 
+* Office: 3332 Siebel Center for Computer Science,  
 201 N. Goodwin Ave.,  
 Urbana IL, 61801, USA 
 
