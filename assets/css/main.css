@@ -68,6 +68,75 @@ pre.lineno { color: #999 !important; }
 .highlight > pre .vi { color: #f2777a; }
 .highlight > pre .il { color: #f99157; }
 
+figure.highlight::before { color: #8e908c !important; background-color: #f7f7f7 !important; }
+
+pre.lineno { color: #8e908c !important; }
+
+.highlight > pre { color: #4d4d4c; background-color: #f7f7f7 !important; /* Comment */ /* Error */ /* Keyword */ /* Literal */ /* Name */ /* Operator */ /* Punctuation */ /* Comment.Multiline */ /* Comment.Preproc */ /* Comment.Single */ /* Comment.Special */ /* Generic.Deleted */ /* Generic.Emph */ /* Generic.Heading */ /* Generic.Inserted */ /* Generic.Prompt */ /* Generic.Strong */ /* Generic.Subheading */ /* Keyword.Constant */ /* Keyword.Declaration */ /* Keyword.Namespace */ /* Keyword.Pseudo */ /* Keyword.Reserved */ /* Keyword.Type */ /* Literal.Date */ /* Literal.Number */ /* Literal.String */ /* Name.Attribute */ /* Name.Builtin */ /* Name.Class */ /* Name.Constant */ /* Name.Decorator */ /* Name.Entity */ /* Name.Exception */ /* Name.Function */ /* Name.Label */ /* Name.Namespace */ /* Name.Other */ /* Name.Property */ /* Name.Tag */ /* Name.Variable */ /* Operator.Word */ /* Text.Whitespace */ /* Literal.Number.Float */ /* Literal.Number.Hex */ /* Literal.Number.Integer */ /* Literal.Number.Oct */ /* Literal.String.Backtick */ /* Literal.String.Char */ /* Literal.String.Doc */ /* Literal.String.Double */ /* Literal.String.Escape */ /* Literal.String.Heredoc */ /* Literal.String.Interpol */ /* Literal.String.Other */ /* Literal.String.Regex */ /* Literal.String.Single */ /* Literal.String.Symbol */ /* Name.Builtin.Pseudo */ /* Name.Variable.Class */ /* Name.Variable.Global */ /* Name.Variable.Instance */ /* Literal.Number.Integer.Long */ }
+.highlight > pre .c { color: #8e908c; }
+.highlight > pre .err { color: #c82829; }
+.highlight > pre .k { color: #8959a8; }
+.highlight > pre .l { color: #f5871f; }
+.highlight > pre .n { color: #4d4d4c; }
+.highlight > pre .o { color: #3e999f; }
+.highlight > pre .p { color: #4d4d4c; }
+.highlight > pre .cm { color: #8e908c; }
+.highlight > pre .cp { color: #8e908c; }
+.highlight > pre .c1 { color: #8e908c; }
+.highlight > pre .cs { color: #8e908c; }
+.highlight > pre .gd { color: #c82829; }
+.highlight > pre .ge { font-style: italic; }
+.highlight > pre .gh { font-weight: bold; color: #4d4d4c; }
+.highlight > pre .gi { color: #718c00; }
+.highlight > pre .gp { font-weight: bold; color: #8e908c; }
+.highlight > pre .gs { font-weight: bold; }
+.highlight > pre .gu { font-weight: bold; color: #3e999f; }
+.highlight > pre .kc { color: #8959a8; }
+.highlight > pre .kd { color: #8959a8; }
+.highlight > pre .kn { color: #3e999f; }
+.highlight > pre .kp { color: #8959a8; }
+.highlight > pre .kr { color: #8959a8; }
+.highlight > pre .kt { color: #eab700; }
+.highlight > pre .ld { color: #718c00; }
+.highlight > pre .m { color: #f5871f; }
+.highlight > pre .s { color: #718c00; }
+.highlight > pre .na { color: #4271ae; }
+.highlight > pre .nb { color: #4d4d4c; }
+.highlight > pre .nc { color: #eab700; }
+.highlight > pre .no { color: #c82829; }
+.highlight > pre .nd { color: #3e999f; }
+.highlight > pre .ni { color: #4d4d4c; }
+.highlight > pre .ne { color: #c82829; }
+.highlight > pre .nf { color: #4271ae; }
+.highlight > pre .nl { color: #4d4d4c; }
+.highlight > pre .nn { color: #eab700; }
+.highlight > pre .nx { color: #4271ae; }
+.highlight > pre .py { color: #4d4d4c; }
+.highlight > pre .nt { color: #3e999f; }
+.highlight > pre .nv { color: #c82829; }
+.highlight > pre .ow { color: #3e999f; }
+.highlight > pre .w { color: #4d4d4c; }
+.highlight > pre .mf { color: #f5871f; }
+.highlight > pre .mh { color: #f5871f; }
+.highlight > pre .mi { color: #f5871f; }
+.highlight > pre .mo { color: #f5871f; }
+.highlight > pre .sb { color: #718c00; }
+.highlight > pre .sc { color: #4d4d4c; }
+.highlight > pre .sd { color: #8e908c; }
+.highlight > pre .s2 { color: #718c00; }
+.highlight > pre .se { color: #f5871f; }
+.highlight > pre .sh { color: #718c00; }
+.highlight > pre .si { color: #f5871f; }
+.highlight > pre .sx { color: #718c00; }
+.highlight > pre .sr { color: #718c00; }
+.highlight > pre .s1 { color: #718c00; }
+.highlight > pre .ss { color: #718c00; }
+.highlight > pre .bp { color: #4d4d4c; }
+.highlight > pre .vc { color: #c82829; }
+.highlight > pre .vg { color: #c82829; }
+.highlight > pre .vi { color: #c82829; }
+.highlight > pre .il { color: #f5871f; }
+
 .clearfix::after { display: table; clear: both; content: ""; }
 
 .left { float: left; }
