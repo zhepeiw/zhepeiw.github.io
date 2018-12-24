@@ -388,8 +388,10 @@
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout <span class="nt">-b</span> <span class="nb">source</span>
 </code></pre></div></div>
 
-<h2 id="regular-deployment">Regular Deployment</h2>
-<p>To obtain the generated content, we then build our site locally with</p>
+<h2 id="automatic-deployment">Automatic Deployment</h2>
+<p>We automize the deployment pipeline to Github Pages with the <code class="highlighter-rouge">rake</code> commands defined in the <code class="highlighter-rouge">Rakefile</code>.</p>
+
+<p>First, we need to obtain the generated content by building the site locally with</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll serve
 </code></pre></div></div>
