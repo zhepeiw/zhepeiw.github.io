@@ -38,7 +38,12 @@
             > em {
                 border-bottom: 1px solid;
                 font-style: normal;
+                font-weight: bold;
             }
+        }
+        .coauthor {
+            @include link-colors($theme-color, $main-color-1);
+            font-weight: normal;
         }
         a.abstract, a.bibtex { cursor: pointer; }
         .hidden {
@@ -89,8 +94,4 @@
 .star {
     color: $theme-color;
     font-style: normal;
-}
-
-a.coauthor, .coauthor > a {
-  @include link-colors($theme-color, $main-color-1);
 }
