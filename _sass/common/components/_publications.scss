@@ -76,6 +76,10 @@
         span.abstract.hidden.open {
             border-color: $grey-color;
         }
+
+        span.notes {
+            color: $grey-color;
+        }       
     }
     abbr {
         position: absolute;
