@@ -691,7 +691,12 @@ input:focus { outline: none; }
 .bibliography li .title { font-weight: bolder; }
 .bibliography li .author a { border-bottom: 1px dashed; }
 .bibliography li .author a:hover { border-bottom-style: solid; text-decoration: none; }
-.bibliography li .author > em { border-bottom: 1px solid; font-style: normal; }
+.bibliography li .author > em { border-bottom: 1px solid; font-style: normal; font-weight: bold; }
+.bibliography li .coauthor { font-weight: normal; }
+.bibliography li .coauthor, .bibliography li .coauthor:link, .bibliography li .coauthor:visited { color: #B509AC; }
+.root[data-is-touch="false"] .bibliography li .coauthor:hover { color: #f92651; }
+.root[data-is-touch] .bibliography li .coauthor.active, .root[data-is-touch] .bibliography li .coauthor:active { color: #cd062e; }
+.bibliography li .coauthor.disabled, .bibliography li .coauthor:disabled { color: rgba(181, 9, 172, 0.2) !important; }
 .bibliography li a.abstract, .bibliography li a.bibtex { cursor: pointer; }
 .bibliography li .hidden { font-size: 0.875rem; max-height: 0px; overflow: hidden; text-align: justify; -webkit-transition: 0.15s ease; -moz-transition: 0.15s ease; -ms-transition: 0.15s ease; -o-transition: 0.15s ease; transition: all 0.15s ease; }
 .bibliography li .hidden p { line-height: 1.4em; margin: 10px; }
@@ -703,11 +708,6 @@ input:focus { outline: none; }
 .bibliography abbr { position: absolute; left: -7em; }
 
 .star { color: #B509AC; font-style: normal; }
-
-a.coauthor, a.coauthor:link, a.coauthor:visited, .coauthor > a, .coauthor > a:link, .coauthor > a:visited { color: #B509AC; }
-.root[data-is-touch="false"] a.coauthor:hover, .root[data-is-touch="false"] .coauthor > a:hover { color: #f92651; }
-.root[data-is-touch] a.coauthor.active, .root[data-is-touch] a.coauthor:active, .root[data-is-touch] .coauthor > a.active, .root[data-is-touch] .coauthor > a:active { color: #cd062e; }
-a.coauthor.disabled, a.coauthor:disabled, .coauthor > a.disabled, .coauthor > a:disabled { color: rgba(181, 9, 172, 0.2) !important; }
 
 .card { max-width: 18rem; border-radius: 0.4rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.23), 0 1px 3px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.02); -webkit-transition: box-shadow 0.4s ease-in-out; transition: box-shadow 0.4s ease-in-out; }
 .card > :first-child { border-top-left-radius: 0.4rem; border-top-right-radius: 0.4rem; }
