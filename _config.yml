@@ -19,7 +19,7 @@ description: Zhepei's homepage
 
 # More Site settings
 text_skin: orange # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
-highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
+highlight_theme: tomorrow # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -46,7 +46,7 @@ author:
   url       :
   avatar    : assets/images/profile_small.png # path or url of avatar image
   bio       : 
-  email     :
+  email     : zhepeiw03@gmail.com
   scholar	  :
   facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
   twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
@@ -239,4 +239,5 @@ plugins:
   - jekyll-sitemap
   - jemoji
   - jekyll/scholar
+  - jekyll-email-protect
 
