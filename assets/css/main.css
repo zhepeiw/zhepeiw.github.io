@@ -699,6 +699,7 @@ input:focus { outline: none; }
 .bibliography li .hidden.open { max-height: 100em; -webkit-transition: 0.15s ease; -moz-transition: 0.15s ease; -ms-transition: 0.15s ease; -o-transition: 0.15s ease; transition: all 0.15s ease; }
 .bibliography li span.abstract.hidden { border: dashed 1px white; }
 .bibliography li span.abstract.hidden.open { border-color: #828282; }
+.bibliography li span.notes { color: #828282; }
 .bibliography abbr { position: absolute; left: -7em; }
 
 .star { color: #B509AC; font-style: normal; }

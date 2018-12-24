@@ -371,13 +371,16 @@
   <span class="na">query</span><span class="pi">:</span> <span class="s2">"</span><span class="s">@*"</span>
 </code></pre></div></div>
 
-<p>Next, add a layout html named <code class="highlighter-rouge">bib.html</code> under <code class="highlighter-rouge">_layouts/</code>. A sample could be found at the <strong>al-folio</strong>’s site <a href="https://github.com/alshedivat/al-folio/blob/master/_layouts/bib.html" target="_blank">here</a>.</p>
+<p>Next, add a layout html named <code class="highlighter-rouge">bib.html</code> under <code class="highlighter-rouge">_layouts/</code>. A sample could be found at the <strong>al-folio</strong>’s site <a href="https://github.com/alshedivat/al-folio/blob/master/_layouts/bib.html" target="_blank">here</a>. Meanwhile, add the corresponding stylesheet <code class="highlighter-rouge">_publications.scss</code> to <code class="highlighter-rouge">/_sass/common/components/</code>. Then, add the following to <code class="highlighter-rouge">assets/css/main.scss</code></p>
 
-<p>Finally, make a new directory <code class="highlighter-rouge">_bibliography/</code> under the root directory, and put the bibtex file <code class="highlighter-rouge">papers.bib</code> under the directory.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@import "common/components/publications";
+</code></pre></div></div>
+
+<p>Next, make a new directory <code class="highlighter-rouge">_bibliography/</code> under the root directory, and put the bibtex file <code class="highlighter-rouge">papers.bib</code> under the directory.</p>
 
 <p>In addition, it is possible to have the link for coauthors by adding <code class="highlighter-rouge">coauthors.yml</code> under <code class="highlighter-rouge">_data/</code> adapted from <a href="https://github.com/alshedivat/al-folio/blob/master/_data/coauthors.yml" target="_blank">the al-folio’s example</a>.</p>
 
-<p>For this site, I added a few supports for coauthors and equal contribution. You may refer to my repo for <code class="highlighter-rouge">_config.yml</code> and <code class="highlighter-rouge">_layouts/bib.html</code> for details.</p>
+<p>For this site, I added a few supports for coauthors, equal contribution and additional comments to each entry. You may check out <code class="highlighter-rouge">_config.yml</code>, <code class="highlighter-rouge">_layouts/bib.html</code> and <code class="highlighter-rouge">/_sass/common/components/_publications.scss</code> at <a href="https://github.com/zhepeiw/zhepeiw.github.io/tree/source" target="_blank">my repo</a> for details.</p>
 
 <h1 id="site-deployment">Site Deployment</h1>
 <p>Github Pages does not support Jekyll Scholar under the default workflow, but it is possible to host the site on Github Pages as introduced in <a href="http://davidensinger.com/2013/07/automating-jekyll-deployment-to-github-pages-with-rake/" target="_blank">this example</a>. In summary, we push the source files to a separate branch to remote and keep only the generated content of the <code class="highlighter-rouge">_site/</code> directories to the <code class="highlighter-rouge">master</code> branch.</p>
