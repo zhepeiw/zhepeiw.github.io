@@ -25,16 +25,22 @@
     {%- if include.type == 'brief' -%}
       {%- include snippets/locale-to-string.html locale=site.data.locale.ARTICLE_DATE_FORMAT -%}
       <li class="item" itemscope itemtype="http://schema.org/BlogPosting" data-tags="{{ _tags }}">
-        <div class="item__content">
-          {%- if include.show_info -%}
-            <span class="item__meta">{{ _article.date | date: __return }}</span>
-          {%- endif -%}
-          {% if _article.inline %}
-            {{ _article.content | remove: '<p>' | remove: '</p>' | emojify }}
-          {% else %}
-            <a itemprop="headline" class="item__header" href="{{ _article_url }}">{{ _article.caption }}</a>
-          {% endif %}
+      <div class="item__content">
+        <div class="grid">
           
+            {%- if include.show_info -%}
+              <div class="cell cell--2">
+                <span class="item__meta">{{ _article.date | date: __return }}</span>
+              </div>
+            {%- endif -%}
+            {% if _article.inline %}
+              <div class="cell cell--auto">
+                {{ _article.content | remove: '<p>' | remove: '</p>' | emojify }}
+              </div>
+            {% else %}
+              <a itemprop="headline" class="item__header" href="{{ _article_url }}">{{ _article.caption }}</a>
+            {% endif %}
+          </div>
         </div>
       </li>
     {%- endif -%}
