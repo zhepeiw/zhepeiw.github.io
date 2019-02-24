@@ -30,7 +30,7 @@
           
             {%- if include.show_info -%}
               <div class="cell cell--2">
-                <span class="item__meta">{{ _article.date | date: __return }}</span>
+                <span class="item__meta__nowrap">{{ _article.date | date: __return }}</span>
               </div>
             {%- endif -%}
             {% if _article.inline %}

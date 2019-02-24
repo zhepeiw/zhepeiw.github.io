@@ -1150,6 +1150,7 @@ a.item__header.disabled, a.item__header:disabled, .item__header > a.disabled, .i
 .article__content table th { font-weight: 700; }
 
 .article-list .item__meta { padding: 0 1rem 0 0; font-family: Menlo, Monaco, Consolas, Andale Mono, lucida console, Courier New, monospace; font-size: 0.85rem; white-space: nowrap; }
+.article-list .item__meta__nowrap { padding: 0 1rem 0 0; font-family: Menlo, Monaco, Consolas, Andale Mono, lucida console, Courier New, monospace; font-size: 0.85rem; }
 
 .article-list__group-header { margin-top: 1rem; }
 

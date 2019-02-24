@@ -5,6 +5,11 @@
     font-size: map-get($base, font-size-sm);
     white-space: nowrap;
   }
+  .item__meta__nowrap {
+    padding: 0 map-get($spacers, 3) 0 0;
+    font-family: map-get($base, font-family-code);
+    font-size: map-get($base, font-size-sm);
+  }
 }
 .article-list__group-header {
   margin-top: map-get($spacers, 3);
