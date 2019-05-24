@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="en">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Tencent Intern 2018 - Zhepei Wang's Site</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>A Brief Overview of Multi-View Networks For Multi-Channel Audio Classification - Zhepei Wang's Site</title>
 
-<meta name="description" content="I have finished my summer intern at Tencent AIPD.">
-<link rel="canonical" href="http://localhost:4000/news/announcement_5/"><link rel="alternate" type="application/rss+xml" title="Zhepei Wang's Site" href="/feed.xml"><link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-icon.png">
+<meta name="description" content="In this article we provide a brief overview of our work Multi-View Networks For Multi-Channel Audio Classification. In this work we propose a neural network ...">
+<link rel="canonical" href="http://localhost:4000/2019/05/24/blog2.html"><link rel="alternate" type="application/rss+xml" title="Zhepei Wang's Site" href="/feed.xml"><link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo/favicon-16x16.png">
 <link rel="manifest" href="/assets/images/logo/site.webmanifest">
@@ -256,7 +256,7 @@
 </script></head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
 
       <div class="page__main-inner">
         <div></div><div class="page__header d-print-none"><header class="header"><div class="main">
@@ -280,20 +280,157 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"></div>
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
-<!-- end custom main top snippet --><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Tencent Intern 2018</h1></header></div><meta itemprop="headline" content="Tencent Intern 2018"><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Aug 10, 2018</span>
-            </li></ul></div><meta itemprop="author" content="Zhepei Wang"/><meta itemprop="datePublished" content="2018-08-10T02:59:00-05:00"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
+<!-- end custom main top snippet --><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>A Brief Overview of Multi-View Networks For Multi-Channel Audio Classification</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="Edit on Github"
+            href="https://github.com/zhepeiw/zhepeiw.github.io/tree/master/_posts/2019-05-24-blog2.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="A Brief Overview of Multi-View Networks For Multi-Channel Audio Classification"><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=Sound+Recognition">Sound Recognition</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=Neural+Networks">Neural Networks</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>May 24, 2019</span>
+            </li></ul></div><meta itemprop="author" content="Zhepei Wang"/><meta itemprop="datePublished" content="2019-05-24T00:00:00-05:00">
+    <meta itemprop="keywords" content="Sound Recognition,Neural Networks"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
-<!-- end custom article top snippet --><div class="article__content" itemprop="articleBody"><p>I have finished my summer intern at Tencent AIPD.</p>
+<!-- end custom article top snippet --><div class="article__content" itemprop="articleBody"><p>In this article we provide a brief overview of our work <a href="https://arxiv.org/pdf/1811.01251.pdf" target="_blank">Multi-View Networks For Multi-Channel Audio Classification</a>. In this work we propose a neural network architecture that performs audio classification/event detection given recordings from multiple devices.</p>
 
-</div><footer class="article__footer"><meta itemprop="dateModified" content="2018-08-10T02:59:00-05:00"><!-- start custom article footer snippet -->
+<h1 id="motivation">Motivation</h1>
+<p>Suppose we’re in a meeting room and there’s a speaker talking. Now we would like to perform some audio sensing task, identifying whether the speaker is talking or not at a given time. Each of us are likely to have a couple of recording devices by our hand, such as our cellphones and laptops; however, not all of them are recording all time. What’s more, the recording quality of each device might be different: some device will provide clean recordings, while others yield poor quality recordings due to the distance to the speaker or defects of the devices themselves. It would therefore be nice to have a system that can perform audio classification/detection from any number of devices and the performance will not degrade because of the channels with poor recording quality.</p>
 
-<!-- end custom article footer snippet --></footer>
+<div class="grid">
+  <div class="cell cell--2"></div>
+  <div class="cell cell--8"> <div class="card">
+  <div class="card__image">
+    <img class="image image--xl" src="/assets/images/blogs/blog2/multichannel.jpg" />
+  </div>
+  <div class="card__content">
+    <div class="card__header">
+      <h4>Problem Description</h4>
+    </div>
+    <p>Not all devices are recording at all time steps, and the quality of the signal recorded is different between devices.</p>
+  </div>
+</div> 
+</div>
+  <div class="cell cell--2"></div>
+</div>
 
-  <div class="d-print-none"><div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/news/announcement_1/">Graduation</a></div><div class="next"><span>NEXT</span><a href="/news/announcement_4/">Start of Ph.D.</a></div></div></div>
+<p>In recent years, deep neural networks have been explored in one-channel or two-channel audio classification(here we assume that the signal from each channel corresponds to the recording from one device), and the models have been extended to multi-channel tasks as well. However, previous deep learning models only can only be applied for a fixed number of channels. First, the number of devices with which the models are deployed must be the same as the number of devices of the recordings in the training set. Second, these models cannot deal with the case where number of devices may varies from time to time. We propose the <strong>Multi-View</strong> Network that can handle the two issues above.</p>
+
+<h1 id="multi-view-networks">Multi-View Networks</h1>
+<p>Multi-View Networks(MVNs) are variants of Recurrent Neural Networks(RNNs), which are a common starting point for classifying ore predicting sequences(if you’re not familiar with RNNs, you may refer to <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">this awesome post</a>). Recall that an RNN may take sequences of arbitrary length since it unrolls across the time dimension. In other words, an RNN can be trained on sequences of length <script type="math/tex">k</script> and be tested on sequences of length <script type="math/tex">k'</script> where <script type="math/tex">k \neq k'</script>.</p>
+
+<p>Let’s return to the multiple recording classification task. We want a model that can handle input sequences with not only variable length but also varying number of channels. Hence, we need a model that unrolls across both the time and the channel dimension, and this is how we design the Multi-View Networks.</p>
+
+<div class="grid">
+  <div class="cell cell--2"></div>
+  <div class="cell cell--8"> <div class="card">
+  <div class="card__image">
+    <img class="image image--xl" src="/assets/images/blogs/blog2/mvn.png" />
+  </div>
+  <div class="card__content">
+    <div class="card__header">
+      <h4>MVN Architecture</h4>
+    </div>
+    <p> At each time frame, the model observes information across all channels before making a prediction. It passes the state of the last channel of the current time frame into next frame.</p>
+  </div>
+</div> 
+</div>
+  <div class="cell cell--2"></div>
+</div>
+
+<p>The diagram above illustrates how MVNs unroll across both time and channel dimensions. For each time frame, the model unrolls the input channel by channel. When it reaches the last channel, it passes the hidden state into the first channel of the next time frame and meanwhile predicts whether the current frame contains speech or not. By unrolling first across channel and then across time, the MVN by essence is a 2D RNN. The following equations represent the recurrence relation in MVN:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}
+    \mathbf{h}_{k, t} &= 
+        \begin{cases}
+            \sigma(\mathbf{W}_h \mathbf{x}_{k,t} + \mathbf{U}_h \mathbf{h}_{k,t-1}) & , k = 1 \\
+            \sigma(\mathbf{W}_h \mathbf{x}_{k,t} + \mathbf{U}_h \mathbf{h}_{k-1,t}) & , 1 < k \leq K        \end{cases}
+\end{split} %]]></script>
+
+<script type="math/tex; mode=display">\mathbf{y}_{t} = \sigma(\mathbf{W}_x \mathbf{h}_{K,t}) \notag</script>
+
+<p>where K is the number of channels, <script type="math/tex">\mathbf{h}_{k, t}</script> is the hidden state for the <script type="math/tex">k</script>-th channel at time <script type="math/tex">t</script>, <script type="math/tex">\mathbf{y}_t</script> is the predicted label at time <script type="math/tex">t</script>, and <script type="math/tex">\sigma</script> is the sigmoid function. The recurrence above allows the model to aggregate information from all channels at each time step.</p>
+
+<h1 id="pipeline">Pipeline</h1>
+<div class="grid">
+  <div class="cell cell--2"></div>
+  <div class="cell cell--8"> <div class="card">
+  <div class="card__image">
+    <img class="image image--xl" src="/assets/images/blogs/blog2/pipeline.jpg" />
+  </div>
+  <div class="card__content">
+    <div class="card__header">
+      <h4>Audio Classification with MVN</h4>
+    </div>
+  </div>
+</div> 
+</div>
+  <div class="cell cell--2"></div>
+</div>
+
+<p>The diagram above illustrates the pipeline of audio classification/event detection with MVN. The pipeline can be summarized as the following steps:</p>
+<ol>
+  <li>Take the magnitude spectra of each channel using Short-Time Fourier Transform(STFT)</li>
+  <li>Pass the magnitude spectra of all channels into MVN</li>
+  <li>For each STFT frame, predict whether it’s background noise or event of interest</li>
+</ol>
+
+<p>Notice that we did not discuss how to handle the delay between microphones with spatial difference. We assume that the delay is relatively small compared to the STFT window size(we use a window size of 1024 samples and a hop size of 512 in the experiments), so the small temporal difference may be ignored and therefore the discussion of alignment is not included in this work.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>We summarize a few properties of the MVN architecture:</p>
+<ol>
+  <li>The performance is stable when the recording quality is different across devices. Compared to regular RNN models, MVN is less affected by channels with poor signal quality and is more effective at collecting information from few clean channels among many noisy channels.</li>
+  <li>The performance is largely invariant to the order of the channels/devices. For MVN, it doesn’t matter which channels it sees first and which ones it sees later.</li>
+  <li>The model can be deployed in settings with arbitrary number of devices.</li>
+</ol>
+
+<p>If you’re interested in the experimental setups and results, please refer to <a href="https://arxiv.org/pdf/1811.01251.pdf" target="_blank">the paper</a> for a more detailed description. You may also check out <a href="/assets/images/blogs/blog2/multi-view-icassp.pdf" target="_blank">our poster</a>, which was presented at ICASSP 2019. The source code for MVN will be released within a few months.</p>
+
+</div><section class="article__sharing d-print-none"></section><footer class="article__footer"><span>Last updated
+        <time itemprop="dateModified" datetime="2019-05-24T00:00:00-05:00">May 24, 2019</time>
+      </span><!-- start custom article footer snippet -->
+
+<!-- end custom article footer snippet --><div itemscope itemtype="http://schema.org/Person" class="author-profile card card--flat item"><img class="author-profile__avatar mx-2" itemprop="image" src="/assets/images/profile_small.png" /><div class="item__content"><meta itemprop="name" content="Zhepei Wang">
+        <p class="author-profile__name">Zhepei Wang</p><div class="author-profile__links"><div class="author-links">
+  <ul class="menu menu--nowrap menu--inline"><li title="Send me Email.">
+      <a class="button button--circle mail-button" itemprop="email" href="mailto:%7A%68%65%70%65%69%77%30%33@%67%6D%61%69%6C.%63%6F%6D" target="_blank">
+        <i class="fas fa-envelope"></i>
+      </a><li title="Follow me on Github.">
+        <a class="button button--circle github-button" itemprop="sameAs" href="https://github.com/zhepeiw" target="_blank">
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path class="svgpath" data-index="path_0" fill="#272636" d="M0 525.2c0 223.6 143.3 413.7 343 483.5 26.9 6.8 22.8-12.4 22.8-25.4l0-88.7c-155.3 18.2-161.5-84.6-172-101.7-21.1-36-70.8-45.2-56-62.3 35.4-18.2 71.4 4.6 113.1 66.3 30.2 44.7 89.1 37.2 119 29.7 6.5-26.9 20.5-50.9 39.7-69.6C248.8 728.2 181.7 630 181.7 513.2c0-56.6 18.7-108.7 55.3-150.7-23.3-69.3 2.2-128.5 5.6-137.3 66.5-6 135.5 47.6 140.9 51.8 37.8-10.2 80.9-15.6 129.1-15.6 48.5 0 91.8 5.6 129.8 15.9 12.9-9.8 77-55.8 138.8-50.2 3.3 8.8 28.2 66.7 6.3 135 37.1 42.1 56 94.6 56 151.4 0 117-67.5 215.3-228.8 243.7 26.9 26.6 43.6 63.4 43.6 104.2l0 128.8c0.9 10.3 0 20.5 17.2 20.5C878.1 942.4 1024 750.9 1024 525.3c0-282.9-229.3-512-512-512C229.1 13.2 0 242.3 0 525.2L0 525.2z" />
+</svg>
+</div>
+        </a>
+      </li><li title="Follow me on Linkedin.">
+        <a class="button button--circle linkedin-button" itemprop="sameAs" href="https://www.linkedin.com/in/zhepei-wang-b40295107" target="_blank">
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M260.096 155.648c0 27.307008-9.899008 50.516992-29.696 69.632-19.796992 19.115008-45.396992 28.672-76.8 28.672-30.036992 0-54.612992-9.556992-73.728-28.672-19.115008-19.115008-28.672-42.324992-28.672-69.632 0-28.672 9.556992-52.224 28.672-70.656 19.115008-18.432 44.372992-27.648 75.776-27.648 31.403008 0 56.32 9.216 74.752 27.648 18.432 18.432 28.331008 41.984 29.696 70.656 0 0 0 0 0 0m-202.752 808.96c0 0 0-632.832 0-632.832 0 0 196.608 0 196.608 0 0 0 0 632.832 0 632.832 0 0-196.608 0-196.608 0 0 0 0 0 0 0m313.344-430.08c0-58.708992-1.364992-126.292992-4.096-202.752 0 0 169.984 0 169.984 0 0 0 10.24 88.064 10.24 88.064 0 0 4.096 0 4.096 0 40.96-68.267008 105.812992-102.4 194.56-102.4 68.267008 0 123.220992 22.868992 164.864 68.608 41.643008 45.739008 62.464 113.664 62.464 203.776 0 0 0 374.784 0 374.784 0 0-196.608 0-196.608 0 0 0 0-350.208 0-350.208 0-91.476992-33.451008-137.216-100.352-137.216-47.787008 0-81.236992 24.576-100.352 73.728-4.096 8.192-6.144 24.576-6.144 49.152 0 0 0 364.544 0 364.544 0 0-198.656 0-198.656 0 0 0 0-430.08 0-430.08 0 0 0 0 0 0" />
+</svg></div>
+        </a>
+      </li></ul>
+</div>
+</div>
+
+    </div>
+</div><div class="article__license"><div class="license">
+    <p>This work is licensed under a <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> license.
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer>
+
+  <div class="d-print-none"><div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/2018/12/23/blog1.html">Building the Site with TeXt and Jekyll Scholar</a></div></div></div>
 
 </div>
 
@@ -668,7 +805,67 @@
   });
 })();/*(function () {
 
-})();*/</script><script>var SOURCES = window.TEXT_VARIABLES.sources;
+})();*/</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();</script><script>var SOURCES = window.TEXT_VARIABLES.sources;
 var PAHTS = window.TEXT_VARIABLES.paths;
 window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
   var searchData = window.TEXT_SEARCH_DATA ? initData(window.TEXT_SEARCH_DATA) : {};

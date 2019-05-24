@@ -1,4 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2019-05-08T18:10:51-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhepei Wang’s Site</title><subtitle>Zhepei's homepage</subtitle><author><name>Zhepei Wang</name><email>zhepeiw03@gmail.com</email></author><entry><title type="html">Building the Site with TeXt and Jekyll Scholar</title><link href="http://localhost:4000/2018/12/23/blog1.html" rel="alternate" type="text/html" title="Building the Site with TeXt and Jekyll Scholar" /><published>2018-12-23T00:00:00-06:00</published><updated>2018-12-23T00:00:00-06:00</updated><id>http://localhost:4000/2018/12/23/blog1</id><content type="html" xml:base="http://localhost:4000/2018/12/23/blog1.html">&lt;p&gt;Welcome! This is the first blog of the site built with &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot;&gt;GitHub Pages&lt;/a&gt; and &lt;a href=&quot;https://jekyllrb.com/&quot; target=&quot;_blank&quot;&gt;Jekyll&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2019-05-24T05:47:13-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhepei Wang’s Site</title><subtitle>Zhepei's homepage</subtitle><author><name>Zhepei Wang</name><email>zhepeiw03@gmail.com</email></author><entry><title type="html">A Brief Overview of Multi-View Networks For Multi-Channel Audio Classification</title><link href="http://localhost:4000/2019/05/24/blog2.html" rel="alternate" type="text/html" title="A Brief Overview of Multi-View Networks For Multi-Channel Audio Classification" /><published>2019-05-24T00:00:00-05:00</published><updated>2019-05-24T00:00:00-05:00</updated><id>http://localhost:4000/2019/05/24/blog2</id><content type="html" xml:base="http://localhost:4000/2019/05/24/blog2.html">&lt;p&gt;In this article we provide a brief overview of our work &lt;a href=&quot;https://arxiv.org/pdf/1811.01251.pdf&quot; target=&quot;_blank&quot;&gt;Multi-View Networks For Multi-Channel Audio Classification&lt;/a&gt;. In this work we propose a neural network architecture that performs audio classification/event detection given recordings from multiple devices.&lt;/p&gt;
+
+&lt;h1 id=&quot;motivation&quot;&gt;Motivation&lt;/h1&gt;
+&lt;p&gt;Suppose we’re in a meeting room and there’s a speaker talking. Now we would like to perform some audio sensing task, identifying whether the speaker is talking or not at a given time. Each of us are likely to have a couple of recording devices by our hand, such as our cellphones and laptops; however, not all of them are recording all time. What’s more, the recording quality of each device might be different: some device will provide clean recordings, while others yield poor quality recordings due to the distance to the speaker or defects of the devices themselves. It would therefore be nice to have a system that can perform audio classification/detection from any number of devices and the performance will not degrade because of the channels with poor recording quality.&lt;/p&gt;
+
+&lt;div class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;cell cell--2&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;cell cell--8&quot;&gt; &lt;div class=&quot;card&quot;&gt;
+  &lt;div class=&quot;card__image&quot;&gt;
+    &lt;img class=&quot;image image--xl&quot; src=&quot;/assets/images/blogs/blog2/multichannel.jpg&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;card__content&quot;&gt;
+    &lt;div class=&quot;card__header&quot;&gt;
+      &lt;h4&gt;Problem Description&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;p&gt;Not all devices are recording at all time steps, and the quality of the signal recorded is different between devices.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt; 
+&lt;/div&gt;
+  &lt;div class=&quot;cell cell--2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In recent years, deep neural networks have been explored in one-channel or two-channel audio classification(here we assume that the signal from each channel corresponds to the recording from one device), and the models have been extended to multi-channel tasks as well. However, previous deep learning models only can only be applied for a fixed number of channels. First, the number of devices with which the models are deployed must be the same as the number of devices of the recordings in the training set. Second, these models cannot deal with the case where number of devices may varies from time to time. We propose the &lt;strong&gt;Multi-View&lt;/strong&gt; Network that can handle the two issues above.&lt;/p&gt;
+
+&lt;h1 id=&quot;multi-view-networks&quot;&gt;Multi-View Networks&lt;/h1&gt;
+&lt;p&gt;Multi-View Networks(MVNs) are variants of Recurrent Neural Networks(RNNs), which are a common starting point for classifying ore predicting sequences(if you’re not familiar with RNNs, you may refer to &lt;a href=&quot;http://colah.github.io/posts/2015-08-Understanding-LSTMs/&quot; target=&quot;_blank&quot;&gt;this awesome post&lt;/a&gt;). Recall that an RNN may take sequences of arbitrary length since it unrolls across the time dimension. In other words, an RNN can be trained on sequences of length &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; and be tested on sequences of length &lt;script type=&quot;math/tex&quot;&gt;k'&lt;/script&gt; where &lt;script type=&quot;math/tex&quot;&gt;k \neq k'&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let’s return to the multiple recording classification task. We want a model that can handle input sequences with not only variable length but also varying number of channels. Hence, we need a model that unrolls across both the time and the channel dimension, and this is how we design the Multi-View Networks.&lt;/p&gt;
+
+&lt;div class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;cell cell--2&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;cell cell--8&quot;&gt; &lt;div class=&quot;card&quot;&gt;
+  &lt;div class=&quot;card__image&quot;&gt;
+    &lt;img class=&quot;image image--xl&quot; src=&quot;/assets/images/blogs/blog2/mvn.png&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;card__content&quot;&gt;
+    &lt;div class=&quot;card__header&quot;&gt;
+      &lt;h4&gt;MVN Architecture&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;p&gt; At each time frame, the model observes information across all channels before making a prediction. It passes the state of the last channel of the current time frame into next frame.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt; 
+&lt;/div&gt;
+  &lt;div class=&quot;cell cell--2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The diagram above illustrates how MVNs unroll across both time and channel dimensions. For each time frame, the model unrolls the input channel by channel. When it reaches the last channel, it passes the hidden state into the first channel of the next time frame and meanwhile predicts whether the current frame contains speech or not. By unrolling first across channel and then across time, the MVN by essence is a 2D RNN. The following equations represent the recurrence relation in MVN:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{split}
+    \mathbf{h}_{k, t} &amp;= 
+        \begin{cases}
+            \sigma(\mathbf{W}_h \mathbf{x}_{k,t} + \mathbf{U}_h \mathbf{h}_{k,t-1}) &amp; , k = 1 \\
+            \sigma(\mathbf{W}_h \mathbf{x}_{k,t} + \mathbf{U}_h \mathbf{h}_{k-1,t}) &amp; , 1 &lt; k \leq K        \end{cases}
+\end{split} %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathbf{y}_{t} = \sigma(\mathbf{W}_x \mathbf{h}_{K,t}) \notag&lt;/script&gt;
+
+&lt;p&gt;where K is the number of channels, &lt;script type=&quot;math/tex&quot;&gt;\mathbf{h}_{k, t}&lt;/script&gt; is the hidden state for the &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt;-th channel at time &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\mathbf{y}_t&lt;/script&gt; is the predicted label at time &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;\sigma&lt;/script&gt; is the sigmoid function. The recurrence above allows the model to aggregate information from all channels at each time step.&lt;/p&gt;
+
+&lt;h1 id=&quot;pipeline&quot;&gt;Pipeline&lt;/h1&gt;
+&lt;div class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;cell cell--2&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;cell cell--8&quot;&gt; &lt;div class=&quot;card&quot;&gt;
+  &lt;div class=&quot;card__image&quot;&gt;
+    &lt;img class=&quot;image image--xl&quot; src=&quot;/assets/images/blogs/blog2/pipeline.jpg&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;card__content&quot;&gt;
+    &lt;div class=&quot;card__header&quot;&gt;
+      &lt;h4&gt;Audio Classification with MVN&lt;/h4&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt; 
+&lt;/div&gt;
+  &lt;div class=&quot;cell cell--2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The diagram above illustrates the pipeline of audio classification/event detection with MVN. The pipeline can be summarized as the following steps:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Take the magnitude spectra of each channel using Short-Time Fourier Transform(STFT)&lt;/li&gt;
+  &lt;li&gt;Pass the magnitude spectra of all channels into MVN&lt;/li&gt;
+  &lt;li&gt;For each STFT frame, predict whether it’s background noise or event of interest&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Notice that we did not discuss how to handle the delay between microphones with spatial difference. We assume that the delay is relatively small compared to the STFT window size(we use a window size of 1024 samples and a hop size of 512 in the experiments), so the small temporal difference may be ignored and therefore the discussion of alignment is not included in this work.&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;We summarize a few properties of the MVN architecture:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;The performance is stable when the recording quality is different across devices. Compared to regular RNN models, MVN is less affected by channels with poor signal quality and is more effective at collecting information from few clean channels among many noisy channels.&lt;/li&gt;
+  &lt;li&gt;The performance is largely invariant to the order of the channels/devices. For MVN, it doesn’t matter which channels it sees first and which ones it sees later.&lt;/li&gt;
+  &lt;li&gt;The model can be deployed in settings with arbitrary number of devices.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you’re interested in the experimental setups and results, please refer to &lt;a href=&quot;https://arxiv.org/pdf/1811.01251.pdf&quot; target=&quot;_blank&quot;&gt;the paper&lt;/a&gt; for a more detailed description. You may also check out &lt;a href=&quot;/assets/images/blogs/blog2/multi-view-icassp.pdf&quot; target=&quot;_blank&quot;&gt;our poster&lt;/a&gt;, which was presented at ICASSP 2019. The source code for MVN will be released within a few months.&lt;/p&gt;</content><author><name>Zhepei Wang</name><email>zhepeiw03@gmail.com</email></author><category term="Sound Recognition" /><category term="Neural Networks" /><summary type="html">In this article we provide a brief overview of our work Multi-View Networks For Multi-Channel Audio Classification. In this work we propose a neural network architecture that performs audio classification/event detection given recordings from multiple devices. Motivation Suppose we’re in a meeting room and there’s a speaker talking. Now we would like to perform some audio sensing task, identifying whether the speaker is talking or not at a given time. Each of us are likely to have a couple of recording devices by our hand, such as our cellphones and laptops; however, not all of them are recording all time. What’s more, the recording quality of each device might be different: some device will provide clean recordings, while others yield poor quality recordings due to the distance to the speaker or defects of the devices themselves. It would therefore be nice to have a system that can perform audio classification/detection from any number of devices and the performance will not degrade because of the channels with poor recording quality. Problem Description Not all devices are recording at all time steps, and the quality of the signal recorded is different between devices. In recent years, deep neural networks have been explored in one-channel or two-channel audio classification(here we assume that the signal from each channel corresponds to the recording from one device), and the models have been extended to multi-channel tasks as well. However, previous deep learning models only can only be applied for a fixed number of channels. First, the number of devices with which the models are deployed must be the same as the number of devices of the recordings in the training set. Second, these models cannot deal with the case where number of devices may varies from time to time. We propose the Multi-View Network that can handle the two issues above. Multi-View Networks Multi-View Networks(MVNs) are variants of Recurrent Neural Networks(RNNs), which are a common starting point for classifying ore predicting sequences(if you’re not familiar with RNNs, you may refer to this awesome post). Recall that an RNN may take sequences of arbitrary length since it unrolls across the time dimension. In other words, an RNN can be trained on sequences of length and be tested on sequences of length where . Let’s return to the multiple recording classification task. We want a model that can handle input sequences with not only variable length but also varying number of channels. Hence, we need a model that unrolls across both the time and the channel dimension, and this is how we design the Multi-View Networks. MVN Architecture At each time frame, the model observes information across all channels before making a prediction. It passes the state of the last channel of the current time frame into next frame. The diagram above illustrates how MVNs unroll across both time and channel dimensions. For each time frame, the model unrolls the input channel by channel. When it reaches the last channel, it passes the hidden state into the first channel of the next time frame and meanwhile predicts whether the current frame contains speech or not. By unrolling first across channel and then across time, the MVN by essence is a 2D RNN. The following equations represent the recurrence relation in MVN: where K is the number of channels, is the hidden state for the -th channel at time , is the predicted label at time , and is the sigmoid function. The recurrence above allows the model to aggregate information from all channels at each time step. Pipeline Audio Classification with MVN The diagram above illustrates the pipeline of audio classification/event detection with MVN. The pipeline can be summarized as the following steps: Take the magnitude spectra of each channel using Short-Time Fourier Transform(STFT) Pass the magnitude spectra of all channels into MVN For each STFT frame, predict whether it’s background noise or event of interest Notice that we did not discuss how to handle the delay between microphones with spatial difference. We assume that the delay is relatively small compared to the STFT window size(we use a window size of 1024 samples and a hop size of 512 in the experiments), so the small temporal difference may be ignored and therefore the discussion of alignment is not included in this work. Conclusion We summarize a few properties of the MVN architecture: The performance is stable when the recording quality is different across devices. Compared to regular RNN models, MVN is less affected by channels with poor signal quality and is more effective at collecting information from few clean channels among many noisy channels. The performance is largely invariant to the order of the channels/devices. For MVN, it doesn’t matter which channels it sees first and which ones it sees later. The model can be deployed in settings with arbitrary number of devices. If you’re interested in the experimental setups and results, please refer to the paper for a more detailed description. You may also check out our poster, which was presented at ICASSP 2019. The source code for MVN will be released within a few months.</summary></entry><entry><title type="html">Building the Site with TeXt and Jekyll Scholar</title><link href="http://localhost:4000/2018/12/23/blog1.html" rel="alternate" type="text/html" title="Building the Site with TeXt and Jekyll Scholar" /><published>2018-12-23T00:00:00-06:00</published><updated>2018-12-23T00:00:00-06:00</updated><id>http://localhost:4000/2018/12/23/blog1</id><content type="html" xml:base="http://localhost:4000/2018/12/23/blog1.html">&lt;p&gt;Welcome! This is the first blog of the site built with &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot;&gt;GitHub Pages&lt;/a&gt; and &lt;a href=&quot;https://jekyllrb.com/&quot; target=&quot;_blank&quot;&gt;Jekyll&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In this article, I’d like to introduce the way I set up the site by adding a few features based on the &lt;a href=&quot;https://tianqi.name/jekyll-TeXt-theme/docs/en/&quot; target=&quot;_blank&quot;&gt;TeXt&lt;/a&gt; theme. In particular, some of the add-on design and features are borrowed from &lt;a href=&quot;https://github.com/alshedivat/al-folio&quot; target=&quot;_blank&quot;&gt;al-folio&lt;/a&gt;, which is another great Jekyll theme for academics. The reason for choosing &lt;strong&gt;TeXt&lt;/strong&gt; instead of &lt;strong&gt;al-folio&lt;/strong&gt; to build on the site is the diversity of the styles and extensions (i.e., support for audio) provided.&lt;/p&gt;
 
