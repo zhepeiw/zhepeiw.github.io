@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="en">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>ICASSP 2019 - Zhepei Wang's Site</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Making Your Vim Luxurious with Simple Configurations - Zhepei Wang's Site</title>
 
-<meta name="description" content="Our paper “Multi-View Networks For Multi-Channel Audio Classification” has been accepted to ICASSP 2019.">
-<link rel="canonical" href="http://localhost:4000/news/announcement_6/"><link rel="alternate" type="application/rss+xml" title="Zhepei Wang's Site" href="/feed.xml"><link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-icon.png">
+<meta name="description" content="In this article I’d like to share how to make an elegant Vim with simple configurations. The purpose of the post is not to convert you to a Vim enthusiast, b...">
+<link rel="canonical" href="http://localhost:4000/2019/06/12/blog3.html"><link rel="alternate" type="application/rss+xml" title="Zhepei Wang's Site" href="/feed.xml"><link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo/favicon-16x16.png">
 <link rel="manifest" href="/assets/images/logo/site.webmanifest">
@@ -256,7 +256,7 @@
 </script></head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
 
       <div class="page__main-inner">
         <div></div><div class="page__header d-print-none"><header class="header"><div class="main">
@@ -280,19 +280,332 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"></div>
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
-<!-- end custom main top snippet --><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>ICASSP 2019</h1></header></div><meta itemprop="headline" content="ICASSP 2019"><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 01, 2019</span>
-            </li></ul></div><meta itemprop="author" content="Zhepei Wang"/><meta itemprop="datePublished" content="2019-02-01T14:30:00-06:00"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
+<!-- end custom main top snippet --><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Making Your Vim Luxurious with Simple Configurations</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="Edit on Github"
+            href="https://github.com/zhepeiw/zhepeiw.github.io/tree/master/_posts/2019-06-12-blog3.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Making Your Vim Luxurious with Simple Configurations"><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=Dev+tools">Dev tools</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Jun 12, 2019</span>
+            </li></ul></div><meta itemprop="author" content="Zhepei Wang"/><meta itemprop="datePublished" content="2019-06-12T00:00:00-05:00">
+    <meta itemprop="keywords" content="Dev tools"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
-<!-- end custom article top snippet --><div class="article__content" itemprop="articleBody"><p>Our paper “Multi-View Networks For Multi-Channel Audio Classification” has been accepted to ICASSP 2019.</p>
-</div><footer class="article__footer"><meta itemprop="dateModified" content="2019-02-01T14:30:00-06:00"><!-- start custom article footer snippet -->
+<!-- end custom article top snippet --><div class="article__content" itemprop="articleBody"><p>In this article I’d like to share how to make an elegant Vim with simple configurations. The purpose of the post is not to convert you to a Vim enthusiast, but I hope after a glance it will make Vim sound/look more appealing.</p>
 
-<!-- end custom article footer snippet --></footer>
+<h1 id="installation">Installation</h1>
 
-  <div class="d-print-none"><div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/news/announcement_3/">Saburo Muroga Endowed Fellowship</a></div><div class="next"><span>NEXT</span><a href="/news/announcement_7/">WASPAA 2019</a></div></div></div>
+<p>To begin with, the <a href="https://www.vim.org/download.php" target="_blank">Vim official site</a> provides a few different ways to download and install Vim on your machine. The recommended way is to compile from source:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/vim/vim.git
+<span class="nb">cd </span>vim
+./configure <span class="nt">--with-features</span><span class="o">=</span>huge <span class="nt">--enable-cscope</span> <span class="nt">--enable-multibyte</span> <span class="se">\</span>
+    <span class="nt">--enable-pythoninterp</span> <span class="nt">--enable-python3interp</span> <span class="se">\</span>
+    <span class="nt">--with-python3-config-dir</span><span class="o">=</span>PATH_TO_PYTHON3_CONFIG_DIR <span class="se">\</span>
+    <span class="nt">--enable-fail-if-missing</span> <span class="se">\</span>
+    <span class="nt">--prefix</span><span class="o">=</span>PATH_TO_EXEC_DIR
+</code></pre></div></div>
+
+<p>where <code class="highlighter-rouge">PATH_TO_PYTHON3_CONFIG_DIR</code> is usually under <code class="highlighter-rouge">/usr/lib</code> (i.e. <code class="highlighter-rouge">/usr/lib/python3.7/config-3.7m-darwin</code>) and <code class="highlighter-rouge">PATH_TO_EXEC_DIR</code> is the place of the compiled executables.</p>
+
+<h1 id="extension-manager">Extension Manager</h1>
+
+<p>Assuming we have Vim successfully installed with python supports. Before we move on to those powerful extensions, we first need to have a good extension manager to make our life much easier for future package installation and management. There are a couple of good extension managers for Vim, but I highly recommend <a href="https://github.com/VundleVim/Vundle.vim" target="_blank">Vundle</a> since it’s easy to use and has lots of supports/discussions online. To install Vundle,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+</code></pre></div></div>
+
+<p>Then, open the <code class="highlighter-rouge">.vimrc</code> file under your <em>home directory</em> (if it does not exist, just creat a new one) and add the following to the file:</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">set</span> nocompatible
+<span class="k">filetype</span> off
+
+<span class="k">set</span> rtp<span class="p">+=~</span><span class="sr">/.vim/</span>bundle/Vundle<span class="p">.</span><span class="k">vim</span>
+<span class="k">call</span> vundle#begin<span class="p">()</span>
+Plugin <span class="s1">'VundleVim/Vundle.vim'</span>
+<span class="k">call</span> vundle#<span class="k">end</span><span class="p">()</span>
+<span class="k">filetype</span> plugin indent <span class="k">on</span>
+</code></pre></div></div>
+
+<p>And then, open Vim, and run</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:PluginInstall
+</code></pre></div></div>
+
+<p>And congratulations! We have Vundle successfully installed. From now on, we can easily install and manage Vim extensions with Vundle.</p>
+
+<h1 id="useful-extensions">Useful Extensions</h1>
+<p>Next, I’ll recommend a few plugins that can improve the appearance or enhance our efficiency. Normally, we install an extension by adding the following lines in <code class="highlighter-rouge">.vimrc</code> <em>after</em> the lines for configuring Vundle:</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'&lt;path_to_extension&gt;'</span>
+</code></pre></div></div>
+<p>and then in Vim run</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:PluginInstall
+</code></pre></div></div>
+
+<p>You may run the latter once for multiple packages.</p>
+
+<h2 id="functionality">Functionality</h2>
+<h3 id="code-folding">Code Folding</h3>
+<p>Current text editors provide the ability to collapse a block of code to make it easier to browse through the entire file. <a href="https://github.com/tmhedberg/SimpylFold" target="_blank">SimplyFold</a> is an extension that enables code folding and expansion in Vim. To install, add the following to <code class="highlighter-rouge">.vimrc</code>:</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'tmhedberg/SimpylFold'</span>
+</code></pre></div></div>
+
+<p>and you may refer to their documentation for advanced configurations. The command to collapse the code is <code class="highlighter-rouge">zc</code> and to expand is <code class="highlighter-rouge">zo</code>.</p>
+
+<div class="grid">
+  <div class="cell cell--2"></div>
+  <div class="cell cell--8"> <div class="card">
+  <div class="card__image">
+    <img class="image image--xl" src="/assets/images/blogs/blog3/codefolding.gif" />
+  </div>
+  <div class="card__content">
+    <div class="card__header">
+      <h4>Code folding</h4>
+    </div>
+  </div>
+</div> 
+</div>
+  <div class="cell cell--2"></div>
+</div>
+
+<h3 id="commenter">Commenter</h3>
+<p><a href="https://github.com/scrooloose/nerdcommenter" target="_blank">NERD Commenter</a> is a powerful tool to comment/uncomment your code. To install, add</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'scrooloose/nerdcommenter'</span>
+</code></pre></div></div>
+<p>to your <code class="highlighter-rouge">.vimrc</code>. I personally use the following configuration for the tool:</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">filetype</span> plugin <span class="k">on</span>
+<span class="c">" Add spaces after comment delimiters by default</span>
+<span class="k">let</span> <span class="nv">g:NERDSpaceDelims</span> <span class="p">=</span> <span class="m">1</span>
+<span class="c">" Use compact syntax for prettified multi-line comments</span>
+<span class="k">let</span> <span class="nv">g:NERDCompactSexyComs</span> <span class="p">=</span> <span class="m">1</span>
+<span class="c">" Align line-wise comment delimiters flush left instead of following code indentation</span>
+<span class="k">let</span> <span class="nv">g:NERDDefaultAlign</span> <span class="p">=</span> <span class="s1">'left'</span>
+<span class="c">" Set a language to use its alternate delimiters by default</span>
+<span class="k">let</span> <span class="nv">g:NERDAltDelims_java</span> <span class="p">=</span> <span class="m">1</span>
+<span class="c">" Add your own custom formats or override the defaults</span>
+<span class="k">let</span> <span class="nv">g:NERDCustomDelimiters</span> <span class="p">=</span> <span class="p">{</span> <span class="s1">'c'</span><span class="p">:</span> <span class="p">{</span> <span class="s1">'left'</span><span class="p">:</span> <span class="s1">'/**'</span><span class="p">,</span><span class="s1">'right'</span><span class="p">:</span> <span class="s1">'*/'</span> <span class="p">}</span> <span class="p">}</span>
+<span class="c">" Allow commenting and inverting empty lines (useful when commenting a region)</span>
+<span class="k">let</span> <span class="nv">g:NERDCommentEmptyLines</span> <span class="p">=</span> <span class="m">1</span>
+<span class="c">" Enable trimming of trailing whitespace when uncommenting</span>
+<span class="k">let</span> <span class="nv">g:NERDTrimTrailingWhitespace</span> <span class="p">=</span> <span class="m">1</span>
+<span class="c">" Enable NERDCommenterToggle to check all selected lines is commented or not </span>
+<span class="k">let</span> <span class="nv">g:NERDToggleCheckAllLines</span> <span class="p">=</span> <span class="m">1</span>
+map <span class="p">&lt;</span>F4<span class="p">&gt;</span> <span class="p">&lt;</span>leader<span class="p">&gt;</span>ci <span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</code></pre></div></div>
+<p>and we’re now ablt to use the key <F4> to comment/uncomment your code.</F4></p>
+
+<div class="grid">
+  <div class="cell cell--2"></div>
+  <div class="cell cell--8"> <div class="card">
+  <div class="card__image">
+    <img class="image image--xl" src="/assets/images/blogs/blog3/commenter.gif" />
+  </div>
+  <div class="card__content">
+    <div class="card__header">
+      <h4>Commenter</h4>
+    </div>
+  </div>
+</div> 
+</div>
+  <div class="cell cell--2"></div>
+</div>
+<h3 id="auto-pairing">Auto Pairing</h3>
+<p>Vim allows using <CR-n> for word suggestions in the insert mode and <CR-x><CR-f> for path suggestions. However, there are a few useful extensions that can boost up the autocompletion.</CR-f></CR-x></CR-n></p>
+
+<p><a href="https://github.com/jiangmiao/auto-pairs" target="_blank">auto-pairs</a> is a tool that may autocomplete pairs of parentheses, brackets, etc under insertion or deletion. Add the following to <code class="highlighter-rouge">.vimrc</code>:</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'jiangmiao/auto-pairs'</span>
+</code></pre></div></div>
+
+<p>and you may checkout the website for further configuration.</p>
+
+<h3 id="auto-complete">Auto-complete</h3>
+<p><a href="https://tabnine.com/" target="_blank">TabNine</a> is an awesome tool for autocompletion and it is based on <a href="https://github.com/ycm-core/YouCompleteMe" target="_blank">YouCompleteMe</a>, another powerful tool. I would recommend TabNine mainly because it’s easier than YouCompleteMe to install and configure, and a deep-learning based version for TabNine would come out soon (so that it automatically writes code for you!). To install, simply add to <code class="highlighter-rouge">.vimrc</code></p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'zxqfl/tabnine-vim'</span>
+</code></pre></div></div>
+
+<h3 id="file-tree">File Tree</h3>
+<p><a href="https://github.com/scrooloose/nerdtree" target="_blank">NERDTree</a> is a plugin for file system explorer for Vim. Add to your <code class="highlighter-rouge">.vimrc</code></p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'scrooloose/nerdtree'</span>
+</code></pre></div></div>
+
+<p>Here is my configuration for the plugin:</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map <span class="p">&lt;</span>F2<span class="p">&gt;</span> <span class="p">:</span>NERDTreeToggle<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+<span class="k">let</span> NERDTreeChDirMode<span class="p">=</span><span class="m">1</span>
+<span class="k">let</span> NERDTreeShowBookmarks<span class="p">=</span><span class="m">1</span>
+<span class="k">let</span> NERDTreeIgnore<span class="p">=[</span><span class="s1">'\~$'</span><span class="p">,</span> <span class="s1">'\.pyc$'</span><span class="p">,</span> <span class="s1">'\.swp$'</span><span class="p">]</span>
+<span class="k">let</span> NERDTreeWinSize<span class="p">=</span><span class="m">25</span>
+</code></pre></div></div>
+
+<p>and we can display/hide the file tree with key <F2>.</F2></p>
+
+<div class="grid">
+  <div class="cell cell--2"></div>
+  <div class="cell cell--8"> <div class="card">
+  <div class="card__image">
+    <img class="image image--xl" src="/assets/images/blogs/blog3/nerdtree.png" />
+  </div>
+  <div class="card__content">
+    <div class="card__header">
+      <h4>NERDTree</h4>
+    </div>
+  </div>
+</div> 
+</div>
+  <div class="cell cell--2"></div>
+</div>
+
+<h3 id="script-header">Script Header</h3>
+<p><a href="https://github.com/alpertuna/vim-header" target="_blank">vim-header</a> is a tool that helps us easily add author and license information to the scripts. Add</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin `alpertuna/<span class="k">vim</span><span class="p">-</span>header`
+</code></pre></div></div>
+
+<p>to your <code class="highlighter-rouge">.vimrc</code>, and you can checkout detailed usage from their documentation.</p>
+
+<h2 id="appearance">Appearance</h2>
+<h3 id="color-theme">Color Theme</h3>
+<p>I personally prefer <a href="https://github.com/morhetz/gruvbox" target="_blank">gruvbox</a> as the primary color scheme. To install, add to <code class="highlighter-rouge">.vimrc</code></p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'morhetz/gruvbox'</span>
+</code></pre></div></div>
+
+<p>and add the following to enable and configure the theme:</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">colorscheme</span> gruvbox
+syntax enable
+<span class="k">set</span> background<span class="p">=</span><span class="nb">dark</span>
+<span class="c">" hot key F5 toggle background</span>
+map <span class="p">&lt;</span>F5<span class="p">&gt;</span> <span class="p">:</span><span class="k">call</span> ToggleBGD<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
+<span class="k">function</span> ToggleBGD<span class="p">()</span>
+    <span class="k">set</span> background<span class="p">=</span><span class="nb">light</span>
+<span class="k">endfunction</span>
+map <span class="p">&lt;</span>S<span class="p">-</span>F5<span class="p">&gt;</span> <span class="p">:</span><span class="k">call</span> ToggleBGL<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
+<span class="k">function</span> ToggleBGL<span class="p">()</span>
+    <span class="k">set</span> background<span class="p">=</span><span class="nb">dark</span>
+<span class="k">endfunction</span>
+</code></pre></div></div>
+
+<div class="grid">
+  <div class="cell cell--2"></div>
+  <div class="cell cell--8"> <div class="card">
+  <div class="card__image">
+    <img class="image image--xl" src="/assets/images/blogs/blog3/gruvbox.gif" />
+  </div>
+  <div class="card__content">
+    <div class="card__header">
+      <h4>Gruvbox: switching between dark and light</h4>
+    </div>
+  </div>
+</div> 
+</div>
+  <div class="cell cell--2"></div>
+</div>
+
+<p>The hotkey setting above allows to switch between dark and light mode with <F5> and <S-F5>(shift-F5). There might be a few additional configuration required depending on your system and terminal, and the documentation provides examples of common mistakes and solutions. For instance, you might have to set</S-F5></F5></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TERM=xterm-256color
+</code></pre></div></div>
+
+<p>in your bash source file (i.e., <code class="highlighter-rouge">~/.bashrc</code>, <code class="highlighter-rouge">~/.bash_profile</code>) to have the color map appropriately displayed, and add</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">set</span> t_ut<span class="p">=</span>
+</code></pre></div></div>
+<p>in <code class="highlighter-rouge">.vimrc</code> to have it work properly in tmux.</p>
+
+<h3 id="status-line">Status Line</h3>
+<p><a href="https://github.com/vim-airline/vim-airline-themes" target="_blank">vim-airline</a> is an extension to enhance the appearance of the status bar. To install, add to <code class="highlighter-rouge">.vimrc</code></p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'vim-airline/vim-airline'</span>
+Plugin <span class="s1">'vim-airline/vim-airline-themes'</span>
+</code></pre></div></div>
+
+<p>and configure it as following to make it consistent with your color theme</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">g:airline_theme</span><span class="p">=</span><span class="s1">'gruvbox'</span>
+</code></pre></div></div>
+
+<div class="grid">
+  <div class="cell cell--2"></div>
+  <div class="cell cell--8"> <div class="card">
+  <div class="card__image">
+    <img class="image image--xl" src="/assets/images/blogs/blog3/airline2.png" />
+    <img class="image image--xl" src="/assets/images/blogs/blog3/airline1.png" />
+  </div>
+  <div class="card__content">
+    <div class="card__header">
+      <h4>Airline theme with gruvbox</h4>
+    </div>
+  </div>
+</div> 
+</div>
+  <div class="cell cell--2"></div>
+</div>
+
+<h1 id="additional-settings">Additional Settings</h1>
+<p>There are a few other settings that make your Vim more user-friendly. Here are some of my recommendations, which could be inserted to the beginning of your <code class="highlighter-rouge">.vimrc</code>:</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">" display line number</span>
+<span class="k">set</span> <span class="k">nu</span>
+<span class="c">" enable mouse in an xterm</span>
+<span class="k">set</span> mouse<span class="p">=</span><span class="k">a</span>
+<span class="c">" highlight the search item</span>
+<span class="k">set</span> hlsearch
+<span class="c">" set backspace button to work as in other programs</span>
+<span class="k">set</span> backspace<span class="p">=</span><span class="m">2</span>
+<span class="c">" set font</span>
+<span class="k">set</span> guifont<span class="p">=</span>Monaco<span class="p">:</span>h13
+<span class="c">" highlight the line and column where the cursor is at</span>
+<span class="k">set</span> cursorline
+<span class="k">set</span> cursorcolumn
+<span class="c">" ignore case in search</span>
+<span class="k">set</span> ignorecase
+<span class="c">" to always display status line</span>
+<span class="k">set</span> laststatus<span class="p">=</span><span class="m">2</span>
+<span class="c">" indentation and tabs</span>
+<span class="k">filetype</span> plugin indent <span class="k">on</span> 
+<span class="k">set</span> tabstop<span class="p">=</span><span class="m">4</span>
+<span class="k">set</span> shiftwidth<span class="p">=</span><span class="m">4</span>
+<span class="k">set</span> expandtab
+</code></pre></div></div>
+
+<hr />
+
+<p>Sections above introduce an incomprehensive, custom configuration of Vim that makes it look and function as most of the graceful modern text editor or IDE. Don’t forget to run <code class="highlighter-rouge">:Plugin Install</code> after the configuration, and hope you all enjoy the journey with Vim!</p>
+
+</div><section class="article__sharing d-print-none"></section><footer class="article__footer"><span>Last updated
+        <time itemprop="dateModified" datetime="2019-08-03T00:00:00-05:00">Aug 03, 2019</time>
+      </span><!-- start custom article footer snippet -->
+
+<!-- end custom article footer snippet --><div itemscope itemtype="http://schema.org/Person" class="author-profile card card--flat item"><img class="author-profile__avatar mx-2" itemprop="image" src="/assets/images/profile_small.png" /><div class="item__content"><meta itemprop="name" content="Zhepei Wang">
+        <p class="author-profile__name">Zhepei Wang</p><div class="author-profile__links"><div class="author-links">
+  <ul class="menu menu--nowrap menu--inline"><li title="Send me Email.">
+      <a class="button button--circle mail-button" itemprop="email" href="mailto:%7A%68%65%70%65%69%77%30%33@%67%6D%61%69%6C.%63%6F%6D" target="_blank">
+        <i class="fas fa-envelope"></i>
+      </a><li title="Follow me on Github.">
+        <a class="button button--circle github-button" itemprop="sameAs" href="https://github.com/zhepeiw" target="_blank">
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path class="svgpath" data-index="path_0" fill="#272636" d="M0 525.2c0 223.6 143.3 413.7 343 483.5 26.9 6.8 22.8-12.4 22.8-25.4l0-88.7c-155.3 18.2-161.5-84.6-172-101.7-21.1-36-70.8-45.2-56-62.3 35.4-18.2 71.4 4.6 113.1 66.3 30.2 44.7 89.1 37.2 119 29.7 6.5-26.9 20.5-50.9 39.7-69.6C248.8 728.2 181.7 630 181.7 513.2c0-56.6 18.7-108.7 55.3-150.7-23.3-69.3 2.2-128.5 5.6-137.3 66.5-6 135.5 47.6 140.9 51.8 37.8-10.2 80.9-15.6 129.1-15.6 48.5 0 91.8 5.6 129.8 15.9 12.9-9.8 77-55.8 138.8-50.2 3.3 8.8 28.2 66.7 6.3 135 37.1 42.1 56 94.6 56 151.4 0 117-67.5 215.3-228.8 243.7 26.9 26.6 43.6 63.4 43.6 104.2l0 128.8c0.9 10.3 0 20.5 17.2 20.5C878.1 942.4 1024 750.9 1024 525.3c0-282.9-229.3-512-512-512C229.1 13.2 0 242.3 0 525.2L0 525.2z" />
+</svg>
+</div>
+        </a>
+      </li><li title="Follow me on Linkedin.">
+        <a class="button button--circle linkedin-button" itemprop="sameAs" href="https://www.linkedin.com/in/zhepei-wang-b40295107" target="_blank">
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M260.096 155.648c0 27.307008-9.899008 50.516992-29.696 69.632-19.796992 19.115008-45.396992 28.672-76.8 28.672-30.036992 0-54.612992-9.556992-73.728-28.672-19.115008-19.115008-28.672-42.324992-28.672-69.632 0-28.672 9.556992-52.224 28.672-70.656 19.115008-18.432 44.372992-27.648 75.776-27.648 31.403008 0 56.32 9.216 74.752 27.648 18.432 18.432 28.331008 41.984 29.696 70.656 0 0 0 0 0 0m-202.752 808.96c0 0 0-632.832 0-632.832 0 0 196.608 0 196.608 0 0 0 0 632.832 0 632.832 0 0-196.608 0-196.608 0 0 0 0 0 0 0m313.344-430.08c0-58.708992-1.364992-126.292992-4.096-202.752 0 0 169.984 0 169.984 0 0 0 10.24 88.064 10.24 88.064 0 0 4.096 0 4.096 0 40.96-68.267008 105.812992-102.4 194.56-102.4 68.267008 0 123.220992 22.868992 164.864 68.608 41.643008 45.739008 62.464 113.664 62.464 203.776 0 0 0 374.784 0 374.784 0 0-196.608 0-196.608 0 0 0 0-350.208 0-350.208 0-91.476992-33.451008-137.216-100.352-137.216-47.787008 0-81.236992 24.576-100.352 73.728-4.096 8.192-6.144 24.576-6.144 49.152 0 0 0 364.544 0 364.544 0 0-198.656 0-198.656 0 0 0 0-430.08 0-430.08 0 0 0 0 0 0" />
+</svg></div>
+        </a>
+      </li></ul>
+</div>
+</div>
+
+    </div>
+</div><div class="article__license"><div class="license">
+    <p>This work is licensed under a <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> license.
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer>
+
+  <div class="d-print-none"><div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/2019/05/24/blog2.html">A Brief Overview of Multi-View Networks For Multi-Channel Audio Classification</a></div></div></div>
 
 </div>
 
@@ -667,7 +980,67 @@
   });
 })();/*(function () {
 
-})();*/</script><script>var SOURCES = window.TEXT_VARIABLES.sources;
+})();*/</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();</script><script>var SOURCES = window.TEXT_VARIABLES.sources;
 var PAHTS = window.TEXT_VARIABLES.paths;
 window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
   var searchData = window.TEXT_SEARCH_DATA ? initData(window.TEXT_SEARCH_DATA) : {};
