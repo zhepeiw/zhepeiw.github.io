@@ -309,7 +309,7 @@
     <span class="nt">--prefix</span><span class="o">=</span>PATH_TO_EXEC_DIR
 </code></pre></div></div>
 
-<p>where <code class="highlighter-rouge">PATH_TO_PYTHON3_CONFIG_DIR</code> is usually under <code class="highlighter-rouge">/usr/lib</code> (i.e. <code class="highlighter-rouge">/usr/lib/python3.7/config-3.7m-darwin</code>) and <code class="highlighter-rouge">PATH_TO_EXEC_DIR</code> is the place of the compiled executables.</p>
+<p>where <code class="language-plaintext highlighter-rouge">PATH_TO_PYTHON3_CONFIG_DIR</code> is usually under <code class="language-plaintext highlighter-rouge">/usr/lib</code> (i.e. <code class="language-plaintext highlighter-rouge">/usr/lib/python3.7/config-3.7m-darwin</code>) and <code class="language-plaintext highlighter-rouge">PATH_TO_EXEC_DIR</code> is the place of the compiled executables.</p>
 
 <h1 id="extension-manager">Extension Manager</h1>
 
@@ -318,42 +318,42 @@
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 </code></pre></div></div>
 
-<p>Then, open the <code class="highlighter-rouge">.vimrc</code> file under your <em>home directory</em> (if it does not exist, just creat a new one) and add the following to the file:</p>
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">set</span> nocompatible
+<p>Then, open the <code class="language-plaintext highlighter-rouge">.vimrc</code> file under your <em>home directory</em> (if it does not exist, just creat a new one) and add the following to the file:</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">set</span> <span class="nb">nocompatible</span>
 <span class="k">filetype</span> off
 
-<span class="k">set</span> rtp<span class="p">+=~</span><span class="sr">/.vim/</span>bundle/Vundle<span class="p">.</span><span class="k">vim</span>
+<span class="k">set</span> <span class="nb">rtp</span><span class="p">+=~</span><span class="sr">/.vim/</span>bundle/Vundle<span class="p">.</span><span class="k">vim</span>
 <span class="k">call</span> vundle#begin<span class="p">()</span>
 Plugin <span class="s1">'VundleVim/Vundle.vim'</span>
-<span class="k">call</span> vundle#<span class="k">end</span><span class="p">()</span>
-<span class="k">filetype</span> plugin indent <span class="k">on</span>
+<span class="k">call</span> vundle#end<span class="p">()</span>
+<span class="k">filetype</span> plugin <span class="nb">indent</span> <span class="k">on</span>
 </code></pre></div></div>
 
 <p>And then, open Vim, and run</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:PluginInstall
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:PluginInstall
 </code></pre></div></div>
 
 <p>And congratulations! We have Vundle successfully installed. From now on, we can easily install and manage Vim extensions with Vundle.</p>
 
 <h1 id="useful-extensions">Useful Extensions</h1>
-<p>Next, I’ll recommend a few plugins that can improve the appearance or enhance our efficiency. Normally, we install an extension by adding the following lines in <code class="highlighter-rouge">.vimrc</code> <em>after</em> the lines for configuring Vundle:</p>
+<p>Next, I’ll recommend a few plugins that can improve the appearance or enhance our efficiency. Normally, we install an extension by adding the following lines in <code class="language-plaintext highlighter-rouge">.vimrc</code> <em>after</em> the lines for configuring Vundle:</p>
 
 <div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'&lt;path_to_extension&gt;'</span>
 </code></pre></div></div>
 <p>and then in Vim run</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:PluginInstall
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:PluginInstall
 </code></pre></div></div>
 
 <p>You may run the latter once for multiple packages.</p>
 
 <h2 id="functionality">Functionality</h2>
 <h3 id="code-folding">Code Folding</h3>
-<p>Current text editors provide the ability to collapse a block of code to make it easier to browse through the entire file. <a href="https://github.com/tmhedberg/SimpylFold" target="_blank">SimplyFold</a> is an extension that enables code folding and expansion in Vim. To install, add the following to <code class="highlighter-rouge">.vimrc</code>:</p>
+<p>Current text editors provide the ability to collapse a block of code to make it easier to browse through the entire file. <a href="https://github.com/tmhedberg/SimpylFold" target="_blank">SimplyFold</a> is an extension that enables code folding and expansion in Vim. To install, add the following to <code class="language-plaintext highlighter-rouge">.vimrc</code>:</p>
 
 <div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'tmhedberg/SimpylFold'</span>
 </code></pre></div></div>
 
-<p>and you may refer to their documentation for advanced configurations. The command to collapse the code is <code class="highlighter-rouge">zc</code> and to expand is <code class="highlighter-rouge">zo</code>.</p>
+<p>and you may refer to their documentation for advanced configurations. The command to collapse the code is <code class="language-plaintext highlighter-rouge">zc</code> and to expand is <code class="language-plaintext highlighter-rouge">zo</code>.</p>
 
 <div class="grid">
   <div class="cell cell--2"></div>
@@ -375,7 +375,7 @@ Plugin <span class="s1">'VundleVim/Vundle.vim'</span>
 <p><a href="https://github.com/scrooloose/nerdcommenter" target="_blank">NERD Commenter</a> is a powerful tool to comment/uncomment your code. To install, add</p>
 <div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'scrooloose/nerdcommenter'</span>
 </code></pre></div></div>
-<p>to your <code class="highlighter-rouge">.vimrc</code>. I personally use the following configuration for the tool:</p>
+<p>to your <code class="language-plaintext highlighter-rouge">.vimrc</code>. I personally use the following configuration for the tool:</p>
 <div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">filetype</span> plugin <span class="k">on</span>
 <span class="c">" Add spaces after comment delimiters by default</span>
 <span class="k">let</span> <span class="nv">g:NERDSpaceDelims</span> <span class="p">=</span> <span class="m">1</span>
@@ -393,7 +393,7 @@ Plugin <span class="s1">'VundleVim/Vundle.vim'</span>
 <span class="k">let</span> <span class="nv">g:NERDTrimTrailingWhitespace</span> <span class="p">=</span> <span class="m">1</span>
 <span class="c">" Enable NERDCommenterToggle to check all selected lines is commented or not </span>
 <span class="k">let</span> <span class="nv">g:NERDToggleCheckAllLines</span> <span class="p">=</span> <span class="m">1</span>
-map <span class="p">&lt;</span>F4<span class="p">&gt;</span> <span class="p">&lt;</span>leader<span class="p">&gt;</span>ci <span class="p">&lt;</span>CR<span class="p">&gt;</span>
+<span class="nb">map</span> <span class="p">&lt;</span>F4<span class="p">&gt;</span> <span class="p">&lt;</span>leader<span class="p">&gt;</span><span class="nb">ci</span> <span class="p">&lt;</span>CR<span class="p">&gt;</span>
 </code></pre></div></div>
 <p>and we’re now ablt to use the key <F4> to comment/uncomment your code.</F4></p>
 
@@ -415,7 +415,7 @@ map <span class="p">&lt;</span>F4<span class="p">&gt;</span> <span class="p">&lt
 <h3 id="auto-pairing">Auto Pairing</h3>
 <p>Vim allows using <CR-n> for word suggestions in the insert mode and <CR-x><CR-f> for path suggestions. However, there are a few useful extensions that can boost up the autocompletion.</CR-f></CR-x></CR-n></p>
 
-<p><a href="https://github.com/jiangmiao/auto-pairs" target="_blank">auto-pairs</a> is a tool that may autocomplete pairs of parentheses, brackets, etc under insertion or deletion. Add the following to <code class="highlighter-rouge">.vimrc</code>:</p>
+<p><a href="https://github.com/jiangmiao/auto-pairs" target="_blank">auto-pairs</a> is a tool that may autocomplete pairs of parentheses, brackets, etc under insertion or deletion. Add the following to <code class="language-plaintext highlighter-rouge">.vimrc</code>:</p>
 
 <div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'jiangmiao/auto-pairs'</span>
 </code></pre></div></div>
@@ -423,18 +423,18 @@ map <span class="p">&lt;</span>F4<span class="p">&gt;</span> <span class="p">&lt
 <p>and you may checkout the website for further configuration.</p>
 
 <h3 id="auto-complete">Auto-complete</h3>
-<p><a href="https://tabnine.com/" target="_blank">TabNine</a> is an awesome tool for autocompletion and it is based on <a href="https://github.com/ycm-core/YouCompleteMe" target="_blank">YouCompleteMe</a>, another powerful tool. I would recommend TabNine mainly because it’s easier than YouCompleteMe to install and configure, and a deep-learning based version for TabNine would come out soon (so that it automatically writes code for you!). To install, simply add to <code class="highlighter-rouge">.vimrc</code></p>
+<p><a href="https://tabnine.com/" target="_blank">TabNine</a> is an awesome tool for autocompletion and it is based on <a href="https://github.com/ycm-core/YouCompleteMe" target="_blank">YouCompleteMe</a>, another powerful tool. I would recommend TabNine mainly because it’s easier than YouCompleteMe to install and configure, and a deep-learning based version for TabNine would come out soon (so that it automatically writes code for you!). To install, simply add to <code class="language-plaintext highlighter-rouge">.vimrc</code></p>
 <div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'zxqfl/tabnine-vim'</span>
 </code></pre></div></div>
 
 <h3 id="file-tree">File Tree</h3>
-<p><a href="https://github.com/scrooloose/nerdtree" target="_blank">NERDTree</a> is a plugin for file system explorer for Vim. Add to your <code class="highlighter-rouge">.vimrc</code></p>
+<p><a href="https://github.com/scrooloose/nerdtree" target="_blank">NERDTree</a> is a plugin for file system explorer for Vim. Add to your <code class="language-plaintext highlighter-rouge">.vimrc</code></p>
 
 <div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'scrooloose/nerdtree'</span>
 </code></pre></div></div>
 
 <p>Here is my configuration for the plugin:</p>
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map <span class="p">&lt;</span>F2<span class="p">&gt;</span> <span class="p">:</span>NERDTreeToggle<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">map</span> <span class="p">&lt;</span>F2<span class="p">&gt;</span> <span class="p">:</span>NERDTreeToggle<span class="p">&lt;</span>CR<span class="p">&gt;</span>
 <span class="k">let</span> NERDTreeChDirMode<span class="p">=</span><span class="m">1</span>
 <span class="k">let</span> NERDTreeShowBookmarks<span class="p">=</span><span class="m">1</span>
 <span class="k">let</span> NERDTreeIgnore<span class="p">=[</span><span class="s1">'\~$'</span><span class="p">,</span> <span class="s1">'\.pyc$'</span><span class="p">,</span> <span class="s1">'\.swp$'</span><span class="p">]</span>
@@ -464,26 +464,26 @@ map <span class="p">&lt;</span>F4<span class="p">&gt;</span> <span class="p">&lt
 <div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin `alpertuna/<span class="k">vim</span><span class="p">-</span>header`
 </code></pre></div></div>
 
-<p>to your <code class="highlighter-rouge">.vimrc</code>, and you can checkout detailed usage from their documentation.</p>
+<p>to your <code class="language-plaintext highlighter-rouge">.vimrc</code>, and you can checkout detailed usage from their documentation.</p>
 
 <h2 id="appearance">Appearance</h2>
 <h3 id="color-theme">Color Theme</h3>
-<p>I personally prefer <a href="https://github.com/morhetz/gruvbox" target="_blank">gruvbox</a> as the primary color scheme. To install, add to <code class="highlighter-rouge">.vimrc</code></p>
+<p>I personally prefer <a href="https://github.com/morhetz/gruvbox" target="_blank">gruvbox</a> as the primary color scheme. To install, add to <code class="language-plaintext highlighter-rouge">.vimrc</code></p>
 <div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'morhetz/gruvbox'</span>
 </code></pre></div></div>
 
 <p>and add the following to enable and configure the theme:</p>
 <div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">colorscheme</span> gruvbox
-syntax enable
-<span class="k">set</span> background<span class="p">=</span><span class="nb">dark</span>
+<span class="nb">syntax</span> enable
+<span class="k">set</span> <span class="nb">background</span><span class="p">=</span><span class="nb">dark</span>
 <span class="c">" hot key F5 toggle background</span>
-map <span class="p">&lt;</span>F5<span class="p">&gt;</span> <span class="p">:</span><span class="k">call</span> ToggleBGD<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
+<span class="nb">map</span> <span class="p">&lt;</span>F5<span class="p">&gt;</span> <span class="p">:</span><span class="k">call</span> ToggleBGD<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
 <span class="k">function</span> ToggleBGD<span class="p">()</span>
-    <span class="k">set</span> background<span class="p">=</span><span class="nb">light</span>
+    <span class="k">set</span> <span class="nb">background</span><span class="p">=</span><span class="nb">light</span>
 <span class="k">endfunction</span>
-map <span class="p">&lt;</span>S<span class="p">-</span>F5<span class="p">&gt;</span> <span class="p">:</span><span class="k">call</span> ToggleBGL<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
+<span class="nb">map</span> <span class="p">&lt;</span>S<span class="p">-</span>F5<span class="p">&gt;</span> <span class="p">:</span><span class="k">call</span> ToggleBGL<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
 <span class="k">function</span> ToggleBGL<span class="p">()</span>
-    <span class="k">set</span> background<span class="p">=</span><span class="nb">dark</span>
+    <span class="k">set</span> <span class="nb">background</span><span class="p">=</span><span class="nb">dark</span>
 <span class="k">endfunction</span>
 </code></pre></div></div>
 
@@ -504,16 +504,16 @@ map <span class="p">&lt;</span>S<span class="p">-</span>F5<span class="p">&gt;</
 </div>
 
 <p>The hotkey setting above allows to switch between dark and light mode with <F5> and <S-F5>(shift-F5). There might be a few additional configuration required depending on your system and terminal, and the documentation provides examples of common mistakes and solutions. For instance, you might have to set</S-F5></F5></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TERM=xterm-256color
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export TERM=xterm-256color
 </code></pre></div></div>
 
-<p>in your bash source file (i.e., <code class="highlighter-rouge">~/.bashrc</code>, <code class="highlighter-rouge">~/.bash_profile</code>) to have the color map appropriately displayed, and add</p>
-<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">set</span> t_ut<span class="p">=</span>
+<p>in your bash source file (i.e., <code class="language-plaintext highlighter-rouge">~/.bashrc</code>, <code class="language-plaintext highlighter-rouge">~/.bash_profile</code>) to have the color map appropriately displayed, and add</p>
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">set</span> <span class="nb">t_ut</span><span class="p">=</span>
 </code></pre></div></div>
-<p>in <code class="highlighter-rouge">.vimrc</code> to have it work properly in tmux.</p>
+<p>in <code class="language-plaintext highlighter-rouge">.vimrc</code> to have it work properly in tmux.</p>
 
 <h3 id="status-line">Status Line</h3>
-<p><a href="https://github.com/vim-airline/vim-airline-themes" target="_blank">vim-airline</a> is an extension to enhance the appearance of the status bar. To install, add to <code class="highlighter-rouge">.vimrc</code></p>
+<p><a href="https://github.com/vim-airline/vim-airline-themes" target="_blank">vim-airline</a> is an extension to enhance the appearance of the status bar. To install, add to <code class="language-plaintext highlighter-rouge">.vimrc</code></p>
 
 <div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Plugin <span class="s1">'vim-airline/vim-airline'</span>
 Plugin <span class="s1">'vim-airline/vim-airline-themes'</span>
@@ -541,34 +541,34 @@ Plugin <span class="s1">'vim-airline/vim-airline-themes'</span>
 </div>
 
 <h1 id="additional-settings">Additional Settings</h1>
-<p>There are a few other settings that make your Vim more user-friendly. Here are some of my recommendations, which could be inserted to the beginning of your <code class="highlighter-rouge">.vimrc</code>:</p>
+<p>There are a few other settings that make your Vim more user-friendly. Here are some of my recommendations, which could be inserted to the beginning of your <code class="language-plaintext highlighter-rouge">.vimrc</code>:</p>
 <div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">" display line number</span>
 <span class="k">set</span> <span class="k">nu</span>
 <span class="c">" enable mouse in an xterm</span>
-<span class="k">set</span> mouse<span class="p">=</span><span class="k">a</span>
+<span class="k">set</span> <span class="nb">mouse</span><span class="p">=</span><span class="k">a</span>
 <span class="c">" highlight the search item</span>
-<span class="k">set</span> hlsearch
+<span class="k">set</span> <span class="nb">hlsearch</span>
 <span class="c">" set backspace button to work as in other programs</span>
-<span class="k">set</span> backspace<span class="p">=</span><span class="m">2</span>
+<span class="k">set</span> <span class="nb">backspace</span><span class="p">=</span><span class="m">2</span>
 <span class="c">" set font</span>
-<span class="k">set</span> guifont<span class="p">=</span>Monaco<span class="p">:</span>h13
+<span class="k">set</span> <span class="nb">guifont</span><span class="p">=</span>Monaco<span class="p">:</span>h13
 <span class="c">" highlight the line and column where the cursor is at</span>
-<span class="k">set</span> cursorline
-<span class="k">set</span> cursorcolumn
+<span class="k">set</span> <span class="nb">cursorline</span>
+<span class="k">set</span> <span class="nb">cursorcolumn</span>
 <span class="c">" ignore case in search</span>
-<span class="k">set</span> ignorecase
+<span class="k">set</span> <span class="nb">ignorecase</span>
 <span class="c">" to always display status line</span>
-<span class="k">set</span> laststatus<span class="p">=</span><span class="m">2</span>
+<span class="k">set</span> <span class="nb">laststatus</span><span class="p">=</span><span class="m">2</span>
 <span class="c">" indentation and tabs</span>
-<span class="k">filetype</span> plugin indent <span class="k">on</span> 
-<span class="k">set</span> tabstop<span class="p">=</span><span class="m">4</span>
-<span class="k">set</span> shiftwidth<span class="p">=</span><span class="m">4</span>
-<span class="k">set</span> expandtab
+<span class="k">filetype</span> plugin <span class="nb">indent</span> <span class="k">on</span> 
+<span class="k">set</span> <span class="nb">tabstop</span><span class="p">=</span><span class="m">4</span>
+<span class="k">set</span> <span class="nb">shiftwidth</span><span class="p">=</span><span class="m">4</span>
+<span class="k">set</span> <span class="nb">expandtab</span>
 </code></pre></div></div>
 
 <hr />
 
-<p>Sections above introduce an incomprehensive, custom configuration of Vim that makes it look and function as most of the graceful modern text editor or IDE. Don’t forget to run <code class="highlighter-rouge">:Plugin Install</code> after the configuration, and hope you all enjoy the journey with Vim!</p>
+<p>Sections above introduce an incomprehensive, custom configuration of Vim that makes it look and function as most of the graceful modern text editor or IDE. Don’t forget to run <code class="language-plaintext highlighter-rouge">:Plugin Install</code> after the configuration, and hope you all enjoy the journey with Vim!</p>
 
 </div><section class="article__sharing d-print-none"></section><footer class="article__footer"><span>Last updated
         <time itemprop="dateModified" datetime="2019-08-03T00:00:00-05:00">Aug 03, 2019</time>
