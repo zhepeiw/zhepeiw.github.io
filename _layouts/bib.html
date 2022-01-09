@@ -83,15 +83,22 @@
   {% if entry.supp %}
     [<a href="{{ entry.supp | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">Supp</a>]
   {% endif %}
-  {% if entry.poster %}
+  <!-- {% if entry.poster %}
     [<a href="{{ entry.poster | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">Poster</a>]
+  {% endif %} -->
+  {% if entry.video %}
+    [<a href="{{ entry.video }}" target="_blank">Video</a>]
   {% endif %}
   {% if entry.slides %}
     [<a href="{{ entry.slides | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">Slides</a>]
   {% endif %}
+  {% if entry.poster %}
+    [<a href="{{ entry.poster }}" target="_blank">Poster</a>]
+  {% endif %}
   {% if entry.code %}
     [<a href="{{ entry.code }}" target="_blank">Code</a>]
   {% endif %}
+
   </span>
 
   <!-- Hidden abstract block -->
