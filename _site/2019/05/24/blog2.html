@@ -323,7 +323,7 @@
 <p>In recent years, deep neural networks have been explored in one-channel or two-channel audio classification(here we assume that the signal from each channel corresponds to the recording from one device), and the models have been extended to multi-channel tasks as well. However, previous deep learning models only can only be applied for a fixed number of channels. First, the number of devices with which the models are deployed must be the same as the number of devices of the recordings in the training set. Second, these models cannot deal with the case where number of devices may varies from time to time. We propose the <strong>Multi-View</strong> Network that can handle the two issues above.</p>
 
 <h1 id="multi-view-networks">Multi-View Networks</h1>
-<p>Multi-View Networks(MVNs) are variants of Recurrent Neural Networks(RNNs), which are a common starting point for classifying ore predicting sequences(if you’re not familiar with RNNs, you may refer to <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">this awesome post</a>). Recall that an RNN may take sequences of arbitrary length since it unrolls across the time dimension. In other words, an RNN can be trained on sequences of length <script type="math/tex">k</script> and be tested on sequences of length <script type="math/tex">k'</script> where <script type="math/tex">k \neq k'</script>.</p>
+<p>Multi-View Networks(MVNs) are variants of Recurrent Neural Networks(RNNs), which are a common starting point for classifying ore predicting sequences(if you’re not familiar with RNNs, you may refer to <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">this awesome post</a>). Recall that an RNN may take sequences of arbitrary length since it unrolls across the time dimension. In other words, an RNN can be trained on sequences of length \(k\) and be tested on sequences of length \(k'\) where \(k \neq k'\).</p>
 
 <p>Let’s return to the multiple recording classification task. We want a model that can handle input sequences with not only variable length but also varying number of channels. Hence, we need a model that unrolls across both the time and the channel dimension, and this is how we design the Multi-View Networks.</p>
 
@@ -346,17 +346,16 @@
 
 <p>The diagram above illustrates how MVNs unroll across both time and channel dimensions. For each time frame, the model unrolls the input channel by channel. When it reaches the last channel, it passes the hidden state into the first channel of the next time frame and meanwhile predicts whether the current frame contains speech or not. By unrolling first across channel and then across time, the MVN by essence is a 2D RNN. The following equations represent the recurrence relation in MVN:</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{split}
-    \mathbf{h}_{k, t} &= 
+\[\begin{split}
+    \mathbf{h}_{k, t} &amp;= 
         \begin{cases}
-            \sigma(\mathbf{W}_h \mathbf{x}_{k,t} + \mathbf{U}_h \mathbf{h}_{k,t-1}) & , k = 1 \\
-            \sigma(\mathbf{W}_h \mathbf{x}_{k,t} + \mathbf{U}_h \mathbf{h}_{k-1,t}) & , 1 < k \leq K        \end{cases}
-\end{split} %]]></script>
+            \sigma(\mathbf{W}_h \mathbf{x}_{k,t} + \mathbf{U}_h \mathbf{h}_{k,t-1}) &amp; , k = 1 \\
+            \sigma(\mathbf{W}_h \mathbf{x}_{k,t} + \mathbf{U}_h \mathbf{h}_{k-1,t}) &amp; , 1 &lt; k \leq K        \end{cases}
+\end{split}\]
 
-<script type="math/tex; mode=display">\mathbf{y}_{t} = \sigma(\mathbf{W}_x \mathbf{h}_{K,t}) \notag</script>
+\[\mathbf{y}_{t} = \sigma(\mathbf{W}_x \mathbf{h}_{K,t}) \notag\]
 
-<p>where K is the number of channels, <script type="math/tex">\mathbf{h}_{k, t}</script> is the hidden state for the <script type="math/tex">k</script>-th channel at time <script type="math/tex">t</script>, <script type="math/tex">\mathbf{y}_t</script> is the predicted label at time <script type="math/tex">t</script>, and <script type="math/tex">\sigma</script> is the sigmoid function. The recurrence above allows the model to aggregate information from all channels at each time step.</p>
+<p>where K is the number of channels, \(\mathbf{h}_{k, t}\) is the hidden state for the \(k\)-th channel at time \(t\), \(\mathbf{y}_t\) is the predicted label at time \(t\), and \(\sigma\) is the sigmoid function. The recurrence above allows the model to aggregate information from all channels at each time step.</p>
 
 <h1 id="pipeline">Pipeline</h1>
 <div class="grid">

@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="en">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Building the Site with TeXt and Jekyll Scholar - Zhepei Wang's Site</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>WASPAA 2021 - Zhepei Wang's Site</title>
 
-<meta name="description" content="Welcome! This is the first blog of the site built with GitHub Pages and Jekyll.In this article, I’d like to introduce the way I set up the site by adding a f...">
-<link rel="canonical" href="http://localhost:4000/2018/12/23/blog1.html"><link rel="alternate" type="application/rss+xml" title="Zhepei Wang's Site" href="/feed.xml"><link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-icon.png">
+<meta name="description" content="Our paper “Sound Event Detection with Adaptive Frequency Selection” has been accepted to WASPAA 2021.">
+<link rel="canonical" href="http://localhost:4000/news/announcement_10/"><link rel="alternate" type="application/rss+xml" title="Zhepei Wang's Site" href="/feed.xml"><link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo/favicon-16x16.png">
 <link rel="manifest" href="/assets/images/logo/site.webmanifest">
@@ -256,7 +256,7 @@
 </script></head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
 
       <div class="page__main-inner">
         <div></div><div class="page__header d-print-none"><header class="header"><div class="main">
@@ -278,189 +278,21 @@
         </ul>
       </nav></div>
   </header>
-</div><div class="page__content"><img class="article__header--cover" src="/assets/images/blogs/blog1/header.jpg"></img><div class ="main"><div class="grid grid--reverse">
+</div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
+              <div class="col-aside d-print-none js-col-aside"></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
-<!-- end custom main top snippet --><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Building the Site with TeXt and Jekyll Scholar</h1></header><span class="split-space">&nbsp;</span>
-          <a class="edit-on-github"
-            title="Edit on Github"
-            href="https://github.com/zhepeiw/zhepeiw.github.io/tree/master/_posts/2018-12-23-blog1.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Building the Site with TeXt and Jekyll Scholar"><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=TeXt">TeXt</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=Jekyll">Jekyll</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Dec 23, 2018</span>
-            </li></ul></div><meta itemprop="author" content="Zhepei Wang"/><meta itemprop="datePublished" content="2018-12-23T00:00:00-06:00">
-    <meta itemprop="keywords" content="TeXt,Jekyll"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
+<!-- end custom main top snippet --><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>WASPAA 2021</h1></header></div><meta itemprop="headline" content="WASPAA 2021"><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Aug 01, 2021</span>
+            </li></ul></div><meta itemprop="author" content="Zhepei Wang"/><meta itemprop="datePublished" content="2021-08-01T00:30:00-05:00"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
-<!-- end custom article top snippet --><div class="article__content" itemprop="articleBody"><p>Welcome! This is the first blog of the site built with <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> and <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.</p>
+<!-- end custom article top snippet --><div class="article__content" itemprop="articleBody"><p>Our paper <a href="https://arxiv.org/pdf/2105.07596.pdf" target="_blank">“Sound Event Detection with Adaptive Frequency Selection”</a> has been accepted to WASPAA 2021.</p>
+</div><footer class="article__footer"><meta itemprop="dateModified" content="2021-08-01T00:30:00-05:00"><!-- start custom article footer snippet -->
 
-<p>In this article, I’d like to introduce the way I set up the site by adding a few features based on the <a href="https://tianqi.name/jekyll-TeXt-theme/docs/en/" target="_blank">TeXt</a> theme. In particular, some of the add-on design and features are borrowed from <a href="https://github.com/alshedivat/al-folio" target="_blank">al-folio</a>, which is another great Jekyll theme for academics. The reason for choosing <strong>TeXt</strong> instead of <strong>al-folio</strong> to build on the site is the diversity of the styles and extensions (i.e., support for audio) provided.</p>
+<!-- end custom article footer snippet --></footer>
 
-<p>All the source code of the site is available on the <a href="https://github.com/zhepeiw/zhepeiw.github.io/tree/source" target="_blank">source branch of my repo</a>.</p>
-
-<h1 id="features">Features</h1>
-<h2 id="customized-home-page">Customized Home Page</h2>
-
-<p>The default layout of the home or index page of the theme is the list of blog posts (as the layout under the current <a href="/blog">Blogs</a> section). The layout of the home page is changed by modifying <code class="language-plaintext highlighter-rouge">_layouts/home.html</code>.</p>
-
-<p>Personally, I’d like to display a short bio and a few updates (news) about my experience on the home page instead of a list of blogs. I replace the home layout to include a short bio and a list of news as two separate html files, <code class="language-plaintext highlighter-rouge">_includes/bio.html</code> and <code class="language-plaintext highlighter-rouge">_includes/news.html</code>, respectively. In particular, the html for the new listing, <code class="language-plaintext highlighter-rouge">_includes/news-list.html</code> is similar to what we have in <code class="language-plaintext highlighter-rouge">_includes/article-list.html</code>. We can add whatever content we want on the home page with similar approaches. In addition, I made a separate copy of the original home layout file to be the layout for the blog listing, <code class="language-plaintext highlighter-rouge">_layout/blog_home.html</code>.</p>
-
-<p>With such a setup, we now have a customized index page and a separate blog listing page.</p>
-
-<h2 id="additional-social-options">Additional Social Options</h2>
-
-<p><strong>TeXt</strong> supports several contact options for social platforms including email, Facebook and LinkedIn. whose button appears on the footer of the page by default. We can incorporate additional options by editing the <code class="language-plaintext highlighter-rouge">_includes/author-links.html</code>.</p>
-
-<p>To include Google Scholar, we will need to use the icons from <a href="https://jpswalsh.github.io/academicons/" target="_blank">Academicons</a>. First, download the latest icon packages and put <code class="language-plaintext highlighter-rouge">academicons.css</code> under <code class="language-plaintext highlighter-rouge">assets/css/</code> and the rest under <code class="language-plaintext highlighter-rouge">assets/fonts/</code>. Then, add the following line to <code class="language-plaintext highlighter-rouge">assets/css/main.scss</code></p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="vi">@import</span> <span class="s2">"academicons.css"</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>Add the following lines to <code class="language-plaintext highlighter-rouge">_includes/author-links.html</code> under the <code class="language-plaintext highlighter-rouge">&lt;ul&gt;...&lt;/ul&gt;</code> block</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{-% if _author.scholar -%}
-  <span class="nt">&lt;li</span> <span class="na">title=</span><span class="s">""</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"button button--circle scholar-button"</span> <span class="na">itemprop=</span><span class="s">"sameAs"</span> <span class="na">href=</span><span class="s">""</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"ai ai-google-scholar"</span><span class="nt">&gt;&lt;/i&gt;</span>
-    <span class="nt">&lt;/a&gt;</span>
-  <span class="nt">&lt;/li&gt;</span>
-{-% endif -%}
-</code></pre></div></div>
-
-<p>Finally, add the <code class="language-plaintext highlighter-rouge">scholar</code> option under <code class="language-plaintext highlighter-rouge">author</code> in <code class="language-plaintext highlighter-rouge">_config.yml</code>.</p>
-
-<h2 id="bibliography">Bibliography</h2>
-
-<p>Unfortunately, <strong>TeXt</strong> does not come with automatic bibliography support. To enable such support, we incorporate <a href="https://github.com/inukshuk/jekyll-scholar" target="_blank">Jekyll Scholar</a> into the site.Jekyll Scholar is a Jekyll extension that converts bibtex to bibliography formatted according to the settings.</p>
-
-<p>To use Jekyll Scholar, we first add the following into the <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s1">'jekyll-scholar'</span><span class="p">,</span> <span class="ss">group: :jekyll_plugins</span>
-</code></pre></div></div>
-
-<p>Then, add the following into <code class="language-plaintext highlighter-rouge">_config.yml</code></p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">scholar</span><span class="pi">:</span>
-
-  <span class="na">last_name</span><span class="pi">:</span> <span class="s">YOUR_LAST_NAME</span>
-  <span class="na">first_name</span><span class="pi">:</span> <span class="s">YOUR_FIRST_NAME</span>
-
-  <span class="na">style</span><span class="pi">:</span> <span class="s">apa</span>
-  <span class="na">locale</span><span class="pi">:</span> <span class="s">en</span>
-
-  <span class="na">sort_by</span><span class="pi">:</span> <span class="s">year</span>
-  <span class="na">order</span><span class="pi">:</span> <span class="s">descending</span>
-
-  <span class="na">source</span><span class="pi">:</span> <span class="s">/_bibliography/</span>
-  <span class="na">bibliography</span><span class="pi">:</span> <span class="s">papers.bib</span>
-  <span class="na">bibliography_template</span><span class="pi">:</span> <span class="s">bib</span>
-
-  <span class="na">replace_strings</span><span class="pi">:</span> <span class="no">true</span>
-  <span class="na">join_strings</span><span class="pi">:</span> <span class="no">true</span>
-
-  <span class="na">details_dir</span><span class="pi">:</span> <span class="s">bibliography</span>
-  <span class="na">details_layout</span><span class="pi">:</span> <span class="s">bibtex.html</span>
-  <span class="na">details_link</span><span class="pi">:</span> <span class="s">Details</span>
-
-  <span class="na">query</span><span class="pi">:</span> <span class="s2">"</span><span class="s">@*"</span>
-</code></pre></div></div>
-
-<p>Next, add a layout html named <code class="language-plaintext highlighter-rouge">bib.html</code> under <code class="language-plaintext highlighter-rouge">_layouts/</code>. A sample could be found at the <strong>al-folio</strong>’s site <a href="https://github.com/alshedivat/al-folio/blob/master/_layouts/bib.html" target="_blank">here</a>. Meanwhile, add the corresponding stylesheet <code class="language-plaintext highlighter-rouge">_publications.scss</code> to <code class="language-plaintext highlighter-rouge">/_sass/common/components/</code>. Then, add the following to <code class="language-plaintext highlighter-rouge">assets/css/main.scss</code></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@import "common/components/publications";
-</code></pre></div></div>
-
-<p>Next, make a new directory <code class="language-plaintext highlighter-rouge">_bibliography/</code> under the root directory, and put the bibtex file <code class="language-plaintext highlighter-rouge">papers.bib</code> under the directory.</p>
-
-<p>In addition, it is possible to have the link for coauthors by adding <code class="language-plaintext highlighter-rouge">coauthors.yml</code> under <code class="language-plaintext highlighter-rouge">_data/</code> adapted from <a href="https://github.com/alshedivat/al-folio/blob/master/_data/coauthors.yml" target="_blank">the al-folio’s example</a>.</p>
-
-<p>For this site, I added a few supports for coauthors, equal contribution and additional comments to each entry. You may check out <code class="language-plaintext highlighter-rouge">_config.yml</code>, <code class="language-plaintext highlighter-rouge">_layouts/bib.html</code> and <code class="language-plaintext highlighter-rouge">/_sass/common/components/_publications.scss</code> at <a href="https://github.com/zhepeiw/zhepeiw.github.io/tree/source" target="_blank">my repo</a> for details.</p>
-
-<h1 id="site-deployment">Site Deployment</h1>
-<p>Github Pages does not support Jekyll Scholar under the default workflow, but it is possible to host the site on Github Pages as introduced in <a href="http://davidensinger.com/2013/07/automating-jekyll-deployment-to-github-pages-with-rake/" target="_blank">this example</a>. In summary, we push the source files to a separate branch to remote and keep only the generated content of the <code class="language-plaintext highlighter-rouge">_site/</code> directories to the <code class="language-plaintext highlighter-rouge">master</code> branch.</p>
-
-<h2 id="preliminary-steps">Preliminary Steps</h2>
-<p>If this is the <strong>first time</strong> running the site, we should first create a <a href="https://github.com/zhepeiw/zhepeiw.github.io/blob/source/Rakefile" target="_blank"><code class="language-plaintext highlighter-rouge">Rakefile</code></a> at the root of the repository. Then, we create and switch to a separate branch, (i.e., <code class="language-plaintext highlighter-rouge">source</code>) with</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout <span class="nt">-b</span> <span class="nb">source</span>
-</code></pre></div></div>
-
-<h2 id="automatic-deployment">Automatic Deployment</h2>
-<p>We automize the deployment pipeline to Github Pages with the <code class="language-plaintext highlighter-rouge">rake</code> commands defined in the <code class="language-plaintext highlighter-rouge">Rakefile</code>.</p>
-
-<p>First, we need to obtain the generated content by building the site locally with</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll serve
-</code></pre></div></div>
-
-<p>Make sure we stay on the <code class="language-plaintext highlighter-rouge">source</code> branch before running the following steps. You can check the status with</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch
-</code></pre></div></div>
-
-<p>We can run</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rake commit
-</code></pre></div></div>
-
-<p>to commit the changes to the source branch locally and</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rake deploy
-</code></pre></div></div>
-
-<p>to push the <code class="language-plaintext highlighter-rouge">_site</code> directory to remote <code class="language-plaintext highlighter-rouge">master</code> and the source to remote <code class="language-plaintext highlighter-rouge">source</code>.</p>
-
-<p>We can also combine the two steps into one by running</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rake commit_deploy
-</code></pre></div></div>
-
-<hr />
-
-<p>Given my limited understanding of Jekyll and front-end development, I admit that the site is still far from perfect, there are a few more possible features to include, and the notes and instructions above is not comprehensive and may contain mistakes. I’m still exploring ways to enhance the site, and I’m more than happy to receive suggestions and comments.</p>
-
-</div><section class="article__sharing d-print-none"></section><footer class="article__footer"><span>Last updated
-        <time itemprop="dateModified" datetime="2018-12-24T00:00:00-06:00">Dec 24, 2018</time>
-      </span><!-- start custom article footer snippet -->
-
-<!-- end custom article footer snippet --><div itemscope itemtype="http://schema.org/Person" class="author-profile card card--flat item"><img class="author-profile__avatar mx-2" itemprop="image" src="/assets/images/profile_small.png" /><div class="item__content"><meta itemprop="name" content="Zhepei Wang">
-        <p class="author-profile__name">Zhepei Wang</p><div class="author-profile__links"><div class="author-links">
-  <ul class="menu menu--nowrap menu--inline"><li title="Send me Email.">
-      <a class="button button--circle mail-button" itemprop="email" href="mailto:%7A%68%65%70%65%69%77%30%33@%67%6D%61%69%6C.%63%6F%6D" target="_blank">
-        <i class="fas fa-envelope"></i>
-      </a><li title="Follow me on Github.">
-        <a class="button button--circle github-button" itemprop="sameAs" href="https://github.com/zhepeiw" target="_blank">
-          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path class="svgpath" data-index="path_0" fill="#272636" d="M0 525.2c0 223.6 143.3 413.7 343 483.5 26.9 6.8 22.8-12.4 22.8-25.4l0-88.7c-155.3 18.2-161.5-84.6-172-101.7-21.1-36-70.8-45.2-56-62.3 35.4-18.2 71.4 4.6 113.1 66.3 30.2 44.7 89.1 37.2 119 29.7 6.5-26.9 20.5-50.9 39.7-69.6C248.8 728.2 181.7 630 181.7 513.2c0-56.6 18.7-108.7 55.3-150.7-23.3-69.3 2.2-128.5 5.6-137.3 66.5-6 135.5 47.6 140.9 51.8 37.8-10.2 80.9-15.6 129.1-15.6 48.5 0 91.8 5.6 129.8 15.9 12.9-9.8 77-55.8 138.8-50.2 3.3 8.8 28.2 66.7 6.3 135 37.1 42.1 56 94.6 56 151.4 0 117-67.5 215.3-228.8 243.7 26.9 26.6 43.6 63.4 43.6 104.2l0 128.8c0.9 10.3 0 20.5 17.2 20.5C878.1 942.4 1024 750.9 1024 525.3c0-282.9-229.3-512-512-512C229.1 13.2 0 242.3 0 525.2L0 525.2z" />
-</svg>
-</div>
-        </a>
-      </li><li title="Follow me on Linkedin.">
-        <a class="button button--circle linkedin-button" itemprop="sameAs" href="https://www.linkedin.com/in/zhepei-wang-b40295107" target="_blank">
-          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <path d="M260.096 155.648c0 27.307008-9.899008 50.516992-29.696 69.632-19.796992 19.115008-45.396992 28.672-76.8 28.672-30.036992 0-54.612992-9.556992-73.728-28.672-19.115008-19.115008-28.672-42.324992-28.672-69.632 0-28.672 9.556992-52.224 28.672-70.656 19.115008-18.432 44.372992-27.648 75.776-27.648 31.403008 0 56.32 9.216 74.752 27.648 18.432 18.432 28.331008 41.984 29.696 70.656 0 0 0 0 0 0m-202.752 808.96c0 0 0-632.832 0-632.832 0 0 196.608 0 196.608 0 0 0 0 632.832 0 632.832 0 0-196.608 0-196.608 0 0 0 0 0 0 0m313.344-430.08c0-58.708992-1.364992-126.292992-4.096-202.752 0 0 169.984 0 169.984 0 0 0 10.24 88.064 10.24 88.064 0 0 4.096 0 4.096 0 40.96-68.267008 105.812992-102.4 194.56-102.4 68.267008 0 123.220992 22.868992 164.864 68.608 41.643008 45.739008 62.464 113.664 62.464 203.776 0 0 0 374.784 0 374.784 0 0-196.608 0-196.608 0 0 0 0-350.208 0-350.208 0-91.476992-33.451008-137.216-100.352-137.216-47.787008 0-81.236992 24.576-100.352 73.728-4.096 8.192-6.144 24.576-6.144 49.152 0 0 0 364.544 0 364.544 0 0-198.656 0-198.656 0 0 0 0-430.08 0-430.08 0 0 0 0 0 0" />
-</svg></div>
-        </a>
-      </li></ul>
-</div>
-</div>
-
-    </div>
-</div><div class="article__license"><div class="license">
-    <p>This work is licensed under a <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> license.
-      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
-        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
-      </a>
-    </p>
-  </div></div></footer>
-
-  <div class="d-print-none"><div class="article__section-navigator clearfix"><div class="next"><span>NEXT</span><a href="/2019/05/24/blog2.html">A Brief Overview of Multi-View Networks For Multi-Channel Audio Classification</a></div></div></div>
+  <div class="d-print-none"><div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/news/announcement_9/">ICASSP 2021</a></div></div></div>
 
 </div>
 
@@ -835,67 +667,7 @@
   });
 })();/*(function () {
 
-})();*/</script><script>
-  /* toc must before affix, since affix need to konw toc' height. */(function() {
-  var SOURCES = window.TEXT_VARIABLES.sources;
-  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
-  window.Lazyload.js(SOURCES.jquery, function() {
-    var $window = $(window);
-    var $articleContent = $('.js-article-content');
-    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
-    var toc;
-    var tocDisabled = false;
-    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
-    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
-
-    function disabled() {
-      return $col2.css('display') === 'none' || !hasToc;
-    }
-
-    tocDisabled = disabled();
-
-    toc = $tocRoot.toc({
-      selectors: TOC_SELECTOR,
-      container: $articleContent,
-      scrollTarget: hasSidebar ? '.js-page-main' : null,
-      scroller: hasSidebar ? '.js-page-main' : null,
-      disabled: tocDisabled
-    });
-
-    $window.on('resize', window.throttle(function() {
-      tocDisabled = disabled();
-      toc && toc.setOptions({
-        disabled: tocDisabled
-      });
-    }, 100));
-
-  });
-})();(function() {
-  var SOURCES = window.TEXT_VARIABLES.sources;
-  window.Lazyload.js(SOURCES.jquery, function() {
-    var $window = $(window), $pageFooter = $('.js-page-footer');
-    var $pageAside = $('.js-page-aside');
-    var affix;
-    var tocDisabled = false;
-    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
-
-    affix = $pageAside.affix({
-      offsetBottom: $pageFooter.outerHeight(),
-      scrollTarget: hasSidebar ? '.js-page-main' : null,
-      scroller: hasSidebar ? '.js-page-main' : null,
-      scroll: hasSidebar ? $('.js-page-main').children() : null,
-      disabled: tocDisabled
-    });
-
-    $window.on('resize', window.throttle(function() {
-      affix && affix.setOptions({
-        disabled: tocDisabled
-      });
-    }, 100));
-
-    window.pageAsideAffix = affix;
-  });
-})();</script><script>var SOURCES = window.TEXT_VARIABLES.sources;
+})();*/</script><script>var SOURCES = window.TEXT_VARIABLES.sources;
 var PAHTS = window.TEXT_VARIABLES.paths;
 window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
   var searchData = window.TEXT_SEARCH_DATA ? initData(window.TEXT_SEARCH_DATA) : {};
