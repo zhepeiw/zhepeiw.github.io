@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="en">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>WASPAA 2021 - Zhepei Wang's Site</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Contact - Zhepei Wang's Site</title>
 
-<meta name="description" content="Our paper “Sound Event Detection with Adaptive Frequency Selection” has been accepted to WASPAA 2021.">
-<link rel="canonical" href="http://localhost:4000/news/announcement_10/"><link rel="alternate" type="application/rss+xml" title="Zhepei Wang's Site" href="/feed.xml"><link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-icon.png">
+<meta name="description" content="Zhepei's homepage">
+<link rel="canonical" href="http://localhost:4000/contact/"><link rel="alternate" type="application/rss+xml" title="Zhepei Wang's Site" href="/feed.xml"><link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo/favicon-16x16.png">
 <link rel="manifest" href="/assets/images/logo/site.webmanifest">
@@ -256,7 +256,7 @@
 </script></head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
 
       <div class="page__main-inner">
         <div></div><div class="page__header d-print-none"><header class="header"><div class="main">
@@ -274,25 +274,33 @@
 <a title="Zhepei's homepage" href="/">Zhepei Wang</a></div>
         <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
       </div><nav class="navigation">
-        <ul><li class="navigation__link"><a href="/">Home</a></li><li class="navigation__link"><a href="/publications/">Publications</a></li><li class="navigation__link"><a href="/articles/">Posts</a></li><li class="navigation__link"><a href="/contact/">Contact</a></li><li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
+        <ul><li class="navigation__link"><a href="/">Home</a></li><li class="navigation__link"><a href="/publications/">Publications</a></li><li class="navigation__link"><a href="/articles/">Posts</a></li><li class="navigation__link navigation__link--active"><a href="/contact/">Contact</a></li><li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
         </ul>
       </nav></div>
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"></div>
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
-<!-- end custom main top snippet --><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>WASPAA 2021</h1></header></div><meta itemprop="headline" content="WASPAA 2021"><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Aug 01, 2021</span>
-            </li></ul></div><meta itemprop="author" content="Zhepei Wang"/><meta itemprop="datePublished" content="2021-08-01T00:30:00-05:00"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
+<!-- end custom main top snippet --><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Contact</h1></header></div><meta itemprop="headline" content="Contact"><meta itemprop="author" content="Zhepei Wang"/><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
-<!-- end custom article top snippet --><div class="article__content" itemprop="articleBody"><p>Our paper <a href="https://arxiv.org/pdf/2105.07596.pdf" target="_blank">“Sound Event Detection with Adaptive Frequency Selection”</a> has been accepted to WASPAA 2021.</p>
-</div><footer class="article__footer"><meta itemprop="dateModified" content="2021-08-01T00:30:00-05:00"><!-- start custom article footer snippet -->
+<!-- end custom article top snippet --><div class="article__content" itemprop="articleBody"><!-- ## Contact -->
+
+<p>I currently live in Mountain View, CA. Feel free to reach out to me through my email, and I’m more than happy to chat about a variety of topics, including audio, ML, DSP, music, sports, bartending, etc.</p>
+
+<ul>
+  <li>Email: zhepeiw03 AT gmail DOT com
+<!-- * Office: 3332 Siebel Center for Computer Science,   -->
+<!-- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 201 N. Goodwin Ave.,   -->
+<!-- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Urbana IL, 61801, USA --></li>
+</ul>
+</div><footer class="article__footer"><!-- start custom article footer snippet -->
 
 <!-- end custom article footer snippet --></footer>
 
-  <div class="d-print-none"><div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/news/announcement_9/">ICASSP 2021</a></div><div class="next"><span>NEXT</span><a href="/news/announcement_13/">SPL</a></div></div></div>
+  <div class="d-print-none"></div>
 
 </div>
 
@@ -678,7 +686,67 @@
   });
 })();/*(function () {
 
-})();*/</script><script>var SOURCES = window.TEXT_VARIABLES.sources;
+})();*/</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();</script><script>var SOURCES = window.TEXT_VARIABLES.sources;
 var PAHTS = window.TEXT_VARIABLES.paths;
 window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
   var searchData = window.TEXT_SEARCH_DATA ? initData(window.TEXT_SEARCH_DATA) : {};
