@@ -19,29 +19,29 @@
         {% assign trim_first = author.first | remove: "<sup>#</sup>" %}
         {% if forloop.length == 1 %}
           {% if author.last == site.scholar.last_name and site.scholar.first_names contains trim_first %}
-            <em>{{author.last}}, {{author.first}}</em>
+            <em>{{trim_first}} {{author.last}}</em>
           {% else %}
-            {{author.last}}, {{author.first}}
+            {{author.first}} {{author.last}}
           {% endif %}
         {% else %}
           {% unless forloop.last %}
             {% if author.last == site.scholar.last_name and site.scholar.first_names contains trim_first %}
-              <em>{{author.last}}, {{author.first}}</em>,
+              <em>{{author.first}} {{author.last}}</em>,
             {% else %}
               {% if site.data.coauthors[author.last] %}
-                <a class="coauthor" href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.last}}, {{author.first}}</a>,
+                <a class="coauthor" href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.first}} {{author.last}}</a>,
               {% else %}
-                {{author.last}}, {{author.first}},
+                {{author.first}} {{author.last}},
               {% endif %}
             {% endif %}
           {% else %}
             {% if author.last == site.scholar.last_name and site.scholar.first_names contains trim_first %}
-              and <em>{{author.last}}, {{author.first}}</em>
+              and <em>{{author.first}} {{author.last}}</em>
             {% else %}
               {% if site.data.coauthors[author.last] %}
-                and <a class="coauthor" href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.last}}, {{author.first}}</a>
+                and <a class="coauthor" href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.first}} {{author.last}}</a>
               {% else %}
-                and {{author.last}}, {{author.first}}
+                and {{author.first}} {{author.last}}
               {% endif %}
             {% endif %}
           {% endunless %}

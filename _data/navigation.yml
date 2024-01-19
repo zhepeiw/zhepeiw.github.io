@@ -1,19 +1,31 @@
 header:
   - titles:
-      en:       About
-      zh:       关于
-      zh-Hans:  关于
-      zh-Hant:  關於
-    url:        /about/
-  - titles:
-      en:       Articles
+      en:       Home
       zh:
       zh-Hans:
       zh-Hant:
-    url:        /articles/
+    url:        /
   - titles:
       en:       Publications
       zh:
       zh-Hans:
       zh-Hant:
     url:        /publications/
+  - titles:
+      en:       Posts
+      zh:
+      zh-Hans:
+      zh-Hant:
+    url:        /articles/
+  # - titles:
+  #     en:       About
+  #     zh:       关于
+  #     zh-Hans:  关于
+  #     zh-Hant:  關於
+  #   url:        /about/
+  - titles:
+      en:       Contact
+      zh:
+      zh-Hans:  
+      zh-Hant:
+    url:        /contact/

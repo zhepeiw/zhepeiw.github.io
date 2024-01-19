@@ -51,7 +51,7 @@
 
     {%- if _author.scholar -%}
       <li title="{{ __return | replace: '[NAME]', 'Google Scholar' }}">
-        <a class="button button--circle scholar-button" itemprop="sameAs" href="{{ _author.scholar }}" target="_blank">
+        <a class="button button--circle scholar-button" itemprop="sameAs" href="https://scholar.google.com/citations?user={{ _author.scholar }}" target="_blank">
         <i class="ai ai-google-scholar"></i>
         </a>
       </li>

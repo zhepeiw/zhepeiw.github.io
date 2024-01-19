@@ -18,8 +18,8 @@ head_caption: Zhepei Wang
 description: Zhepei's homepage
 
 # More Site settings
-text_skin: orange # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
-highlight_theme: tomorrow # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
+text_skin: mylight # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
+highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -44,12 +44,12 @@ author:
   type      : # "person" (default), "organization"
   name      : Zhepei Wang
   url       :
-  avatar    : assets/images/profile_small.png # path or url of avatar image
+  avatar    : assets/images/profile.png # path or url of avatar image
   bio       : 
   email     : zhepeiw03@gmail.com
-  scholar	  :
+  scholar	: L2ZJUD8AAAAJ
   facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
-  twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
+  twitter   : zhepeiw03 # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
   googleplus: # "user_id"   the last part of your profile url, e.g. https://plus.google.com/u/0/user_id
   weibo     : # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
   douban    : # "user_name" the last part of your profile url, e.g. https://www.douban.com/people/user_name/
