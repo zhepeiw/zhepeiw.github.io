@@ -65,6 +65,9 @@
 <!--   {% if entry.abstract %}
     [<a class="abstract">Abs</a>]
   {% endif %} -->
+  {% if entry.pdf %}
+    [<a href="{{entry.pdf}}" target="_blank">PDF</a>]
+  {% endif %}
   {% if entry.url %}
     [<a href="{{entry.url}}" target="_blank">url</a>]
   {% endif %}
@@ -77,9 +80,6 @@
   <!-- {% if entry.pdf %}
     [<a href="{{ entry.pdf | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">PDF</a>]
   {% endif %} -->
-  {% if entry.pdf %}
-    [<a href="{{entry.pdf}}" target="_blank">PDF</a>]
-  {% endif %}
   {% if entry.supp %}
     [<a href="{{ entry.supp | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">Supp</a>]
   {% endif %}
@@ -90,7 +90,7 @@
     [<a href="{{ entry.video }}" target="_blank">Video</a>]
   {% endif %}
   {% if entry.slides %}
-    [<a href="{{ entry.slides | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">Slides</a>]
+    [<a href="{{ entry.slides }}" target="_blank">Slides</a>]
   {% endif %}
   {% if entry.poster %}
     [<a href="{{ entry.poster }}" target="_blank">Poster</a>]
