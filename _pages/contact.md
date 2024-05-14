@@ -16,7 +16,7 @@ aside:
 
 <!-- ## Contact -->
 
-I currently live in Mountain View, CA. Feel free to reach out to me through my email, and I'm more than happy to chat about a variety of topics, including audio, ML, DSP, music, sports, bartending, etc.
+I currently live in the bay area. Feel free to reach out to me through my email, and I'm more than happy to chat about a variety of topics, including audio, ML, DSP, music, sports, bartending, etc.
 
 
 * Email: zhepeiw03 AT gmail DOT com
