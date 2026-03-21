@@ -55,7 +55,7 @@ Current deployment behavior:
 This repository currently uses:
 
 - `source` as the main working branch
-- `master` as the publishing branch that triggers GitHub Pages deployment
+- `master` as the branch GitHub Pages watches for source changes
 
 Typical local workflow:
 
@@ -74,19 +74,20 @@ git status
 git add .
 git commit -m "Update website content"
 git push origin source
-git checkout master
-git merge source
-git push origin master
-git checkout source
+git push origin source:master
 ```
 
 What this does:
 
 - saves your latest work on `source`
-- copies those commits into `master`
-- pushes `master` to GitHub, which triggers `.github/workflows/deploy.yml`
+- pushes the same source commit to `origin/source` for backup/history
+- updates `origin/master` to match `source`
+- triggers `.github/workflows/deploy.yml`, which builds the Astro site and publishes `dist/`
 
-If `master` is already up to date with `source`, the final `git push origin master` may say there is nothing new to publish.
+Notes:
+
+- You do not need to build `dist/` manually before publishing; GitHub Actions builds and deploys it from the `master` branch.
+- If `origin/master` has moved independently, pull or inspect it before pushing so you do not overwrite unexpected remote-only changes.
 
 If the domain changes, update:
 
