@@ -43,7 +43,7 @@ export const site = {
     ],
     intro: [
       "Hello! I am a researcher at the MusicAI Group of <a href=\"https://research.adobe.com/people/\" target=\"_blank\" rel=\"noreferrer\">Adobe Research</a>. My work focuses on machine learning for music, audio, and speech, including music and audio understanding, text-to-music generation, sound recognition, source separation, speech enhancement, and multimodal representation learning.",
-      "Before joining Adobe, I was an applied scientist at Amazon Web Services (AWS) and also interned there several times, working on real-time speech enhancement, personalized audio processing, and enterprise search. I earned my Ph.D. in Computer Science from the University of Illinois Urbana-Champaign in 2023, advised by Paris Smaragdis. Prior to my Ph.D., I received my B.S. in Computer Science from Harvey Mudd College in 2018."
+      "Before joining Adobe, I was an applied scientist at Amazon Web Services (AWS) and also interned there several times, working on real-time speech enhancement, personalized audio processing, and enterprise search. I earned my Ph.D. in Computer Science from the University of Illinois Urbana-Champaign in 2023, advised by Prof. Paris Smaragdis. Prior to my Ph.D., I received my B.S. in Computer Science from Harvey Mudd College in 2018."
     ],
     selectedPublicationIds: [
       "CSSL",
