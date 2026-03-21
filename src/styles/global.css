@@ -362,6 +362,10 @@ img {
   height: 1.05rem;
 }
 
+.hero__inline-link--icon-only {
+  justify-content: center;
+}
+
 .button,
 .action-links__item {
   display: inline-flex;
