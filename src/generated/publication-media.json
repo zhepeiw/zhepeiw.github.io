@@ -1,8 +1,11 @@
 {
   "generative-first-audio-autoencoder": {
-    "image": "/assets/publications/generative-first-audio-autoencoder.jpg",
+    "image": "/assets/publications/genae.png",
     "imageAlt": "Representative figure for A Generative-First Neural Audio Autoencoder",
-    "imageSource": "Extracted from paper PDF",
+    "imageSource": "Manual override",
+    "imagePosition": "50% 50%",
+    "imageScale": 0.96,
+    "imageFit": "contain",
     "summary": null
   },
   "metadata-captioning": {
@@ -29,7 +32,7 @@
   "imagic-tango": {
     "image": "/assets/publications/imagic_tango.png",
     "imageAlt": "Representative figure for Audio Editing with Non-Rigid Text Prompts",
-    "imageSource": "Extracted from paper PDF",
+    "imageSource": "Manual override",
     "imagePosition": "50% 50%",
     "imageScale": 0.96,
     "imageFit": "contain",
@@ -47,7 +50,7 @@
   "UICLAP": {
     "image": "/assets/publications/UICLAP.png",
     "imageAlt": "Representative figure for Unsupervised Improvement of Audio-Text Cross-Modal Representations",
-    "imageSource": "Extracted from paper PDF",
+    "imageSource": "Manual override",
     "imagePosition": "50% 50%",
     "imageScale": 0.96,
     "imageFit": "contain",
@@ -68,7 +71,7 @@
   "CSSL": {
     "image": "/assets/publications/CSSL.png",
     "imageAlt": "Representative figure for Learning Representations for New Sound Classes With Continual Self-Supervised Learning",
-    "imageSource": "Extracted from paper PDF",
+    "imageSource": "Manual override",
     "imagePosition": "50% 50%",
     "imageScale": 0.96,
     "imageFit": "contain",
@@ -77,7 +80,7 @@
   "SemiTSE": {
     "image": "/assets/publications/semi_tse.png",
     "imageAlt": "Representative figure for Semi-supervised Time Domain Target Speaker Extraction with Attention",
-    "imageSource": "Extracted from paper PDF",
+    "imageSource": "Manual override",
     "imagePosition": "50% 50%",
     "imageScale": 0.96,
     "imageFit": "contain",
@@ -86,7 +89,7 @@
   "Wang2021SemiSupervisedSV": {
     "image": "/assets/publications/semi_svs.png",
     "imageAlt": "Representative figure for Semi-Supervised Singing Voice Separation With Noisy Self-Training",
-    "imageSource": "Extracted from paper PDF",
+    "imageSource": "Manual override",
     "imagePosition": "50% 50%",
     "imageScale": 0.96,
     "imageFit": "contain",
@@ -101,7 +104,7 @@
   "Wang2021SoundED": {
     "image": "/assets/publications/hidact.png",
     "imageAlt": "Representative figure for Sound Event Detection with Adaptive Frequency Selection",
-    "imageSource": "Extracted from paper PDF",
+    "imageSource": "Manual override",
     "imagePosition": "50% 50%",
     "imageScale": 0.96,
     "imageFit": "contain",
@@ -110,7 +113,7 @@
   "Tzinis2020SudoR": {
     "image": "/assets/publications/sudormrf.png",
     "imageAlt": "Representative figure for Sudo RM -RF: Efficient Networks for Universal Audio Source Separation",
-    "imageSource": "Extracted from paper PDF",
+    "imageSource": "Manual override",
     "imagePosition": "50% 50%",
     "imageScale": 0.96,
     "imageFit": "contain",
@@ -125,7 +128,7 @@
   "Wang1910:Continual": {
     "image": "/assets/publications/generative_replay.png",
     "imageAlt": "Representative figure for Continual Learning of New Sound Classes Using Generative Replay",
-    "imageSource": "Extracted from paper PDF",
+    "imageSource": "Manual override",
     "imagePosition": "50% 50%",
     "imageScale": 0.96,
     "imageFit": "contain",
@@ -134,7 +137,7 @@
   "multiview-clf": {
     "image": "/assets/publications/MVN.png",
     "imageAlt": "Representative figure for Multi-View Networks For Multi-Channel Audio Classification",
-    "imageSource": "Extracted from paper PDF",
+    "imageSource": "Manual override",
     "imagePosition": "50% 50%",
     "imageScale": 0.96,
     "imageFit": "contain",
