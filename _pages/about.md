@@ -21,6 +21,6 @@ aside:
 ## Contact
 
 * Email: zhepeiw03 AT gmail DOT com
-* Office: 3332 Siebel Center for Computer Science,  
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 201 N. Goodwin Ave.,  
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Urbana IL, 61801, USA
+* Office: Adobe Inc.,  
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 601 Townsend St.,  
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; San Francisco, CA 94103, USA

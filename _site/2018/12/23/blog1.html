@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Building the Site with TeXt and Jekyll Scholar - Zhepei Wang's Site</title>
 
 <meta name="description" content="Welcome! This is the first blog of the site built with GitHub Pages and Jekyll.In this article, I’d like to introduce the way I set up the site by adding a f...">
-<link rel="canonical" href="http://localhost:4000/2018/12/23/blog1.html"><link rel="alternate" type="application/rss+xml" title="Zhepei Wang's Site" href="/feed.xml"><link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-icon.png">
+<link rel="canonical" href="/2018/12/23/blog1.html"><link rel="alternate" type="application/rss+xml" title="Zhepei Wang's Site" href="/feed.xml"><link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo/favicon-16x16.png">
 <link rel="manifest" href="/assets/images/logo/site.webmanifest">
@@ -396,6 +396,11 @@
 
 <p>First, we need to obtain the generated content by building the site locally with</p>
 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll build
+</code></pre></div></div>
+
+<p>To preview the site locally before publishing, run</p>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll serve
 </code></pre></div></div>
 
@@ -406,30 +411,40 @@
 
 <p>We can run</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rake commit
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nt">-A</span>
+git commit <span class="nt">-m</span> <span class="s2">"Your message here"</span>
+git push origin <span class="nb">source</span>
 </code></pre></div></div>
 
-<p>to commit the changes to the source branch locally and</p>
+<p>to commit the changes to the <code class="language-plaintext highlighter-rouge">source</code> branch directly.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rake deploy
+<p>If the <code class="language-plaintext highlighter-rouge">rake</code> executable is available in your local Ruby bundle, you can also use the automation in the <code class="language-plaintext highlighter-rouge">Rakefile</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>rake commit
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>rake deploy
 </code></pre></div></div>
 
 <p>to push the <code class="language-plaintext highlighter-rouge">_site</code> directory to remote <code class="language-plaintext highlighter-rouge">master</code> and the source to remote <code class="language-plaintext highlighter-rouge">source</code>.</p>
 
+<p>If your local bundle does not include <code class="language-plaintext highlighter-rouge">rake</code>, the manual <code class="language-plaintext highlighter-rouge">git</code> commands above are the more reliable path for the <code class="language-plaintext highlighter-rouge">source</code> branch, followed by your preferred deployment step for the generated <code class="language-plaintext highlighter-rouge">_site</code>.</p>
+
 <p>We can also combine the two steps into one by running</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rake commit_deploy
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>rake commit_deploy
 </code></pre></div></div>
 
 <hr />
 
 <p>Given my limited understanding of Jekyll and front-end development, I admit that the site is still far from perfect, there are a few more possible features to include, and the notes and instructions above is not comprehensive and may contain mistakes. I’m still exploring ways to enhance the site, and I’m more than happy to receive suggestions and comments.</p>
-
 </div><section class="article__sharing d-print-none"></section><footer class="article__footer"><span>Last updated
         <time itemprop="dateModified" datetime="2018-12-24T00:00:00-06:00">Dec 24, 2018</time>
       </span><!-- start custom article footer snippet -->
 
-<!-- end custom article footer snippet --><div itemscope itemtype="http://schema.org/Person" class="author-profile card card--flat item"><img class="author-profile__avatar mx-2" itemprop="image" src="/assets/images/profile_jan24_small.png" /><div class="item__content"><meta itemprop="name" content="Zhepei Wang">
+<!-- end custom article footer snippet --><div itemscope itemtype="http://schema.org/Person" class="author-profile card card--flat item"><img class="author-profile__avatar mx-2" itemprop="image" src="/assets/images/profile_2026-03-20.jpg" /><div class="item__content"><meta itemprop="name" content="Zhepei Wang">
         <p class="author-profile__name">Zhepei Wang</p><div class="author-profile__links"><div class="author-links">
   <ul class="menu menu--nowrap menu--inline"><li title="Send me Email.">
       <a class="button button--circle mail-button" itemprop="email" href="mailto:%7A%68%65%70%65%69%77%30%33@%67%6D%61%69%6C.%63%6F%6D" target="_blank">
@@ -537,7 +552,7 @@
 </div>
     </div>
     <div class="site-info"><p class="menu menu--center">
-        <span>© Copyright 2024 Zhepei Wang.</span>
+        <span>© Copyright 2026 Zhepei Wang.</span>
         <a type="application/rss+xml" href="/feed.xml">RSS</a>
       </p>
       <p>Powered by <a href="https://pages.github.com/">GitHub Pages</a>, <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> & <a
