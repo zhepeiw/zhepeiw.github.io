@@ -25,14 +25,16 @@ interface Publication {
 }
 
 interface Props {
+  id?: string;
+  navLabel?: string;
   title?: string;
   publications: Publication[];
 }
 
-const { title, publications } = Astro.props;
+const { id, navLabel, title, publications } = Astro.props;
 ---
 
-<section class="publication-section">
+<section class="publication-section" id={id} data-section-label={navLabel}>
   {title && (
     <div class="publication-section__header">
       <h2>{title}</h2>

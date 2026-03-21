@@ -32,7 +32,7 @@ const recentNews = await Promise.all(
 ---
 
 <MainLayout>
-  <section class="hero">
+  <section class="hero" id="overview" data-section-label="Overview">
     <div class="hero__image">
       <img src={site.homepage.profileImage} alt={`Portrait of ${site.homepage.name}`} />
     </div>
@@ -60,12 +60,12 @@ const recentNews = await Promise.all(
     </div>
   </section>
 
-  <section class="stack">
+  <section class="stack" id="selected-work" data-section-label="Selected Work">
     <SectionHeading title="Selected Work" />
     <PublicationSection publications={featured} />
   </section>
 
-  <section class="stack">
+  <section class="stack" id="updates" data-section-label="Updates">
     <SectionHeading title="Updates" />
     <div class="news-list">
       {

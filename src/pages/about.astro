@@ -5,7 +5,7 @@ import { site } from "../data/site";
 ---
 
 <MainLayout title="About">
-  <section class="prose-page">
+  <section class="prose-page" id="research-profile" data-section-label="Research Profile">
     <SectionHeading eyebrow="About" title="Research profile" />
     {site.about.content.map((paragraph) => <p>{paragraph}</p>)}
     <p>

@@ -1,9 +1,7 @@
 export const site = {
   title: "Zhepei Wang",
   description: "Researcher working on machine learning for music, audio, and speech.",
-  footerEmail: {
-    display: "zhepeiw03 [at] gmail [dot] com"
-  },
+  footerText: "San Francisco Bay Area",
   location: "San Francisco Bay Area",
   homepage: {
     name: "Zhepei Wang",
@@ -13,7 +11,8 @@ export const site = {
       "MusicAI Group"
     ],
     emailLines: [
-      "zhepeiw03 [at] gmail [dot] com"
+      "zhepeiw03 [at] gmail [dot] com",
+      "zhepeiw [at] ieee [dot] org"
     ],
     socialLinks: [
       {
@@ -44,7 +43,7 @@ export const site = {
     ],
     intro: [
       "Hello! I am a researcher at the MusicAI Group of Adobe Research. My work focuses on machine learning for music, audio, and speech, including music and audio understanding, text-to-music generation, sound recognition, source separation, speech enhancement, and multimodal representation learning.",
-      "Before joining Adobe, I was an applied scientist at Amazon Web Services (AWS) and also interned there several times, working on real-time speech enhancement, personalized audio, and enterprise search. I earned my Ph.D. in Computer Science from the University of Illinois Urbana-Champaign in 2023, advised by Paris Smaragdis. Prior to my Ph.D., I received my B.S. in Computer Science from Harvey Mudd College in 2018."
+      "Before joining Adobe, I was an applied scientist at Amazon Web Services (AWS) and also interned there several times, working on real-time speech enhancement, personalized audio processing, and enterprise search. I earned my Ph.D. in Computer Science from the University of Illinois Urbana-Champaign in 2023, advised by Paris Smaragdis. Prior to my Ph.D., I received my B.S. in Computer Science from Harvey Mudd College in 2018."
     ],
     selectedPublicationIds: [
       "CSSL",
@@ -67,6 +66,10 @@ export const site = {
   },
   contact: {
     title: "Contact",
+    emails: [
+      "zhepeiw03 [at] gmail [dot] com",
+      "zhepeiw [at] ieee [dot] org"
+    ],
     content:
       "I currently live in the Bay Area. Feel free to reach out by email if you'd like to chat about audio, machine learning, DSP, music, sports, coffee, or collaboration opportunities."
   }

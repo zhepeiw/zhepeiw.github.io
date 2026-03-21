@@ -7,7 +7,7 @@ const posts = (await getCollection("posts")).sort((a, b) => b.data.date.getTime(
 ---
 
 <MainLayout title="Posts">
-  <section class="page-header">
+  <section class="page-header" id="overview" data-section-label="Overview">
     <SectionHeading
       eyebrow="Posts"
       title="Notes on research, tools, and implementation"
@@ -15,7 +15,7 @@ const posts = (await getCollection("posts")).sort((a, b) => b.data.date.getTime(
     />
   </section>
 
-  <div class="post-list">
+  <section class="post-list" id="posts" data-section-label="Posts">
     {
       posts.map((post) => (
         <article class="post-list__item">
@@ -35,5 +35,5 @@ const posts = (await getCollection("posts")).sort((a, b) => b.data.date.getTime(
         </article>
       ))
     }
-  </div>
+  </section>
 </MainLayout>

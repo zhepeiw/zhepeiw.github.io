@@ -5,10 +5,10 @@ import { site } from "../../data/site";
 ---
 
 <MainLayout title="Contact">
-  <section class="prose-page">
+  <section class="prose-page" id="get-in-touch" data-section-label="Get in Touch">
     <SectionHeading eyebrow="Contact" title="Get in touch" />
     <p>{site.contact.content}</p>
-    <p>Email: {site.footerEmail.display}</p>
+    <p>Emails: {site.contact.emails.join(" · ")}</p>
     <p>{site.location}</p>
   </section>
 </MainLayout>

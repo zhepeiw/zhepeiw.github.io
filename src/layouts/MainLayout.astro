@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Icon from "../components/Icon.astro";
 import { site } from "../data/site";
 
 interface Props {
@@ -53,18 +54,190 @@ function isActive(href: string) {
         </div>
       </header>
       <main class="site-main">
-        <slot />
+        <div class="page-content">
+          <slot />
+        </div>
+        <div class="section-nav-shell" data-section-nav-shell hidden>
+          <nav class="section-nav" data-section-nav aria-label="Section navigation" tabindex="-1">
+            <div class="section-nav__list"></div>
+          </nav>
+        </div>
       </main>
       <footer class="site-footer">
         <div class="site-footer__inner">
-          <p>{site.title}</p>
+          <p class="site-footer__title">{site.title}</p>
           <div class="site-footer__meta">
-            <p>{site.footerEmail.display}</p>
             <p>Last Updated: {lastUpdated}</p>
-            <a href="#top">Back to top</a>
           </div>
         </div>
       </footer>
     </div>
+    <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+      <Icon name="arrow-up" />
+    </button>
+    <script>
+      const slugify = (value) =>
+        value
+          .toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-|-$/g, "") || "section";
+
+      const navShell = document.querySelector("[data-section-nav-shell]");
+      const navRoot = document.querySelector("[data-section-nav]");
+      const navList = navRoot?.querySelector(".section-nav__list");
+      const usedIds = new Set();
+
+      const ensureId = (element, preferredLabel) => {
+        if (!(element instanceof HTMLElement)) return null;
+        if (element.id) {
+          usedIds.add(element.id);
+          return element.id;
+        }
+
+        let baseId = slugify(preferredLabel);
+        let nextId = baseId;
+        let suffix = 2;
+        while (usedIds.has(nextId) || document.getElementById(nextId)) {
+          nextId = `${baseId}-${suffix}`;
+          suffix += 1;
+        }
+
+        element.id = nextId;
+        usedIds.add(nextId);
+        return nextId;
+      };
+
+      const explicitSections = Array.from(
+        document.querySelectorAll("[data-section-label]")
+      )
+        .map((element) => {
+          if (!(element instanceof HTMLElement)) return null;
+          const label = element.dataset.sectionLabel?.trim();
+          if (!label) return null;
+          const id = ensureId(element, label);
+          if (!id) return null;
+          return { id, label, element };
+        })
+        .filter(Boolean);
+
+      const articleHeadingSections = Array.from(
+        document.querySelectorAll(".article-page h2")
+      )
+        .map((element) => {
+          if (!(element instanceof HTMLElement)) return null;
+          const label = element.textContent?.trim();
+          if (!label) return null;
+          const id = ensureId(element, label);
+          if (!id) return null;
+          return { id, label, element };
+        })
+        .filter(Boolean);
+
+      const sections = [...explicitSections, ...articleHeadingSections];
+
+      if (navShell && navRoot && navList && sections.length > 0) {
+        navShell.hidden = false;
+        navList.innerHTML = "";
+
+        sections.forEach((section) => {
+          const link = document.createElement("a");
+          link.className = "section-nav__link";
+          link.href = `#${section.id}`;
+          link.textContent = section.label;
+          navList.append(link);
+        });
+
+        const links = Array.from(navList.querySelectorAll(".section-nav__link"));
+        const sectionElements = sections.map((section) => section.element);
+        let hideNavTimer;
+        let isNavHovered = false;
+
+        const showNav = () => {
+          if (!(navShell instanceof HTMLElement)) return;
+          if (window.innerWidth <= 860 || window.scrollY < 120) {
+            navShell.classList.remove("is-visible");
+            return;
+          }
+
+          navShell.classList.add("is-visible");
+        };
+
+        const scheduleNavHide = () => {
+          if (!(navShell instanceof HTMLElement)) return;
+          window.clearTimeout(hideNavTimer);
+          hideNavTimer = window.setTimeout(() => {
+            if (!isNavHovered) navShell.classList.remove("is-visible");
+          }, 1500);
+        };
+
+        const handleActivity = () => {
+          showNav();
+          scheduleNavHide();
+        };
+
+        const setActiveSection = () => {
+          const threshold = window.scrollY + 140;
+          let activeIndex = 0;
+
+          sectionElements.forEach((element, index) => {
+            if (element.offsetTop <= threshold) activeIndex = index;
+          });
+
+          links.forEach((link, index) => {
+            const isCurrent = index === activeIndex;
+            link.classList.toggle("is-active", isCurrent);
+            if (isCurrent) {
+              link.setAttribute("aria-current", "true");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          });
+        };
+
+        setActiveSection();
+        handleActivity();
+        window.addEventListener("scroll", setActiveSection, { passive: true });
+        window.addEventListener("scroll", handleActivity, { passive: true });
+        window.addEventListener("mousemove", handleActivity, { passive: true });
+        window.addEventListener("resize", setActiveSection);
+
+        navRoot.addEventListener("mouseenter", () => {
+          isNavHovered = true;
+          showNav();
+          window.clearTimeout(hideNavTimer);
+        });
+
+        navRoot.addEventListener("mouseleave", () => {
+          isNavHovered = false;
+          scheduleNavHide();
+        });
+
+        navRoot.addEventListener("focusin", () => {
+          isNavHovered = true;
+          showNav();
+          window.clearTimeout(hideNavTimer);
+        });
+
+        navRoot.addEventListener("focusout", () => {
+          isNavHovered = false;
+          scheduleNavHide();
+        });
+      }
+
+      const backToTopButton = document.querySelector(".back-to-top");
+      const toggleBackToTop = () => {
+        if (!(backToTopButton instanceof HTMLElement)) return;
+        backToTopButton.classList.toggle("is-visible", window.scrollY > 280);
+      };
+
+      toggleBackToTop();
+
+      window.addEventListener("scroll", toggleBackToTop, { passive: true });
+
+      backToTopButton?.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
   </body>
 </html>

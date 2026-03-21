@@ -15,7 +15,7 @@ const { Content } = await render(post);
 ---
 
 <MainLayout title={post.data.title}>
-  <article class="article-page">
+  <article class="article-page" id="overview" data-section-label="Overview">
     <p class="article-page__meta">
       {post.data.date.toLocaleDateString("en-US", {
         year: "numeric",
