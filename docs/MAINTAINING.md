@@ -120,7 +120,6 @@ Generated files used by the Astro site:
 
 - `src/generated/publications.json`: normalized publication data derived from BibTeX
 - `src/generated/publication-media.json`: thumbnail metadata and optional manual overrides
-- `public/downloads/bibtex/*.bib`: one downloadable BibTeX file per entry
 - `public/assets/publications/*.jpg`: generated publication thumbnails
 
 ## Adding Or Updating Content
@@ -212,19 +211,31 @@ npm run sync:data
 This regenerates:
 
 - `src/generated/publications.json`
-- `public/downloads/bibtex/*.bib`
 
-### Downloadable BibTeX Files
+What this includes:
+
+- normalized author names in full-name format for the site UI and BibTeX modal
+- cleaned citation-oriented BibTeX text used by the site
+
+### Generated BibTeX Output
 
 The script:
 
 - `scripts/build-publications.mjs`
 
-parses `_bibliography/papers.bib` and emits one `.bib` file per publication into:
+parses `_bibliography/papers.bib` and writes normalized publication metadata into:
 
-- `public/downloads/bibtex`
+- `src/generated/publications.json`
 
-These files power the `BibTeX` download buttons on publication cards.
+Current BibTeX behavior on the site:
+
+- publication cards on both `/` and `/publications/` open a BibTeX modal
+- the modal supports `Copy` and `Download`
+- the modal shows only citation-relevant BibTeX fields, not site-specific helper fields such as `video`, `poster`, `code`, `pub`, or `display_select`
+
+Notes:
+
+- `_bibliography/papers.bib` is the source of truth for author naming. If a name should appear in full on the site and in the BibTeX modal, store the full name directly in the bibliography source.
 
 ### Publication Thumbnails
 
@@ -327,7 +338,7 @@ Examples:
 
 - `/assets/cv_2026-03-20.pdf`
 - `/assets/images/profile_2026-03-20.jpg`
-- `/downloads/bibtex/metadata-captioning.bib`
+- `/downloads/example-handout.pdf`
 
 ## Verification Checklist
 
@@ -341,5 +352,6 @@ Check that:
 
 - Astro builds successfully
 - the main routes render: `/`, `/publications/`, `/about/`, `/articles/`, `/contact/`, `/404.html`
-- publication cards still show images and BibTeX download links
+- publication cards still show images and working `BibTeX` buttons on both `/` and `/publications/`
+- clicking `BibTeX` opens the modal, shows the citation snippet, and the `Copy` and `Download` buttons work
 - any newly added assets resolve correctly

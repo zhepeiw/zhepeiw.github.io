@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import PublicationSection from "../components/PublicationSection.astro";
+import BibtexModal from "../components/BibtexModal.astro";
 import Icon from "../components/Icon.astro";
 import { site } from "../data/site";
 import publications from "../generated/publications.json";
@@ -92,4 +93,6 @@ const recentNews = await Promise.all(
       }
     </div>
   </section>
+
+  <BibtexModal />
 </MainLayout>

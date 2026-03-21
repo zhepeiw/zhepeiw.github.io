@@ -1,0 +1,127 @@
+---
+import Icon from "./Icon.astro";
+---
+
+<div class="bibtex-modal" data-bibtex-modal hidden>
+  <div class="bibtex-modal__backdrop" data-bibtex-close></div>
+  <div
+    class="bibtex-modal__dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="bibtex-modal-title"
+    tabindex="-1"
+    data-bibtex-dialog
+  >
+    <div class="bibtex-modal__header">
+      <div>
+        <p class="bibtex-modal__eyebrow">Citation</p>
+        <h2 id="bibtex-modal-title" class="bibtex-modal__title"></h2>
+      </div>
+      <button class="bibtex-modal__icon-button" type="button" aria-label="Close BibTeX modal" data-bibtex-close>
+        ×
+      </button>
+    </div>
+    <pre class="bibtex-modal__code"><code data-bibtex-code></code></pre>
+    <div class="bibtex-modal__actions">
+      <button class="button button--secondary bibtex-modal__action-button" type="button" data-bibtex-copy>
+        <Icon name="copy" />
+        <span>Copy</span>
+      </button>
+      <button class="button button--primary bibtex-modal__action-button" type="button" data-bibtex-download>
+        <Icon name="download" />
+        <span>Download</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.querySelector("[data-bibtex-modal]");
+  const dialog = document.querySelector("[data-bibtex-dialog]");
+  const title = document.getElementById("bibtex-modal-title");
+  const code = document.querySelector("[data-bibtex-code]");
+  const copyButton = document.querySelector("[data-bibtex-copy]");
+  const downloadButton = document.querySelector("[data-bibtex-download]");
+  const closeButtons = Array.from(document.querySelectorAll("[data-bibtex-close]"));
+  const triggers = Array.from(document.querySelectorAll("[data-bibtex-trigger]"));
+
+  let activeBibtex = "";
+  let activePublicationId = "";
+  let lastTrigger = null;
+
+  const closeModal = () => {
+    if (!(modal instanceof HTMLElement)) return;
+    modal.hidden = true;
+    document.body.classList.remove("has-modal-open");
+    if (copyButton instanceof HTMLButtonElement) copyButton.textContent = "Copy";
+    if (lastTrigger instanceof HTMLElement) lastTrigger.focus();
+  };
+
+  const openModal = (trigger) => {
+    if (
+      !(modal instanceof HTMLElement) ||
+      !(dialog instanceof HTMLElement) ||
+      !(title instanceof HTMLElement) ||
+      !(code instanceof HTMLElement) ||
+      !(trigger instanceof HTMLElement)
+    ) {
+      return;
+    }
+
+    activeBibtex = trigger.dataset.bibtex ?? "";
+    activePublicationId = trigger.dataset.publicationId ?? "citation";
+    title.textContent = trigger.dataset.publicationTitle ?? "BibTeX";
+    code.textContent = activeBibtex;
+    modal.hidden = false;
+    document.body.classList.add("has-modal-open");
+    lastTrigger = trigger;
+    dialog.focus();
+  };
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => openModal(trigger));
+  });
+
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", closeModal);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!(modal instanceof HTMLElement) || modal.hidden) return;
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeModal();
+    }
+  });
+
+  copyButton?.addEventListener("click", async () => {
+    if (!(copyButton instanceof HTMLButtonElement) || !activeBibtex) return;
+
+    try {
+      await navigator.clipboard.writeText(activeBibtex);
+      copyButton.textContent = "Copied";
+      window.setTimeout(() => {
+        copyButton.textContent = "Copy";
+      }, 1600);
+    } catch {
+      copyButton.textContent = "Copy failed";
+      window.setTimeout(() => {
+        copyButton.textContent = "Copy";
+      }, 1600);
+    }
+  });
+
+  downloadButton?.addEventListener("click", () => {
+    if (!activeBibtex) return;
+
+    const blob = new Blob([activeBibtex], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${activePublicationId || "citation"}.bib`;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+  });
+</script>

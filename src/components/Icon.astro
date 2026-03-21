@@ -4,7 +4,9 @@ interface Props {
     | "audio"
     | "bibtex"
     | "code"
+    | "copy"
     | "cv"
+    | "download"
     | "github"
     | "link"
     | "linkedin"
@@ -99,6 +101,23 @@ const { name } = Astro.props;
       <path d="m8.25 8.25-3.5 3.75 3.5 3.75" />
       <path d="m15.75 8.25 3.5 3.75-3.5 3.75" />
       <path d="M13.25 5.5 10.75 18.5" />
+    </svg>
+  )
+}
+{
+  name === "copy" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="8" y="8" width="10.25" height="12.25" rx="1.75" />
+      <path d="M15.25 8V6.75A1.75 1.75 0 0 0 13.5 5H6.75A1.75 1.75 0 0 0 5 6.75V15.5A1.75 1.75 0 0 0 6.75 17.25H8" />
+    </svg>
+  )
+}
+{
+  name === "download" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 4.75v9.5" />
+      <path d="m8.25 10.75 3.75 3.75 3.75-3.75" />
+      <path d="M5 18.25h14" />
     </svg>
   )
 }

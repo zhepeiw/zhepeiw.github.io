@@ -24,7 +24,7 @@ interface Publication {
   code?: string;
   audio?: string;
   url?: string;
-  bibtexDownloadPath?: string;
+  bibtex: string;
 }
 
 interface Props {
@@ -55,11 +55,13 @@ const links = [
   publication.code && { label: "Code", href: publication.code, icon: "code" },
   publication.audio && { label: "Audio", href: publication.audio, icon: "audio" },
   publication.url && { label: "Link", href: publication.url, icon: "link" },
-  publication.bibtexDownloadPath && {
+  publication.bibtex && {
     label: "BibTeX",
-    href: publication.bibtexDownloadPath,
     icon: "bibtex",
-    newTab: true
+    action: "bibtex",
+    publicationId: publication.id,
+    publicationTitle: publication.title,
+    bibtex: publication.bibtex
   }
 ].filter(Boolean);
 ---

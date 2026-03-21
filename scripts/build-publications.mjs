@@ -5,8 +5,34 @@ import bibtexParse from "bibtex-parse-js";
 const root = process.cwd();
 const bibPath = path.join(root, "_bibliography", "papers.bib");
 const generatedDir = path.join(root, "src", "generated");
-const downloadsDir = path.join(root, "public", "downloads", "bibtex");
 const mediaPath = path.join(generatedDir, "publication-media.json");
+
+const standardBibtexFields = [
+  "address",
+  "author",
+  "booktitle",
+  "chapter",
+  "doi",
+  "edition",
+  "editor",
+  "howpublished",
+  "institution",
+  "journal",
+  "month",
+  "note",
+  "number",
+  "organization",
+  "pages",
+  "publisher",
+  "school",
+  "series",
+  "title",
+  "type",
+  "url",
+  "volume",
+  "year"
+];
+const standardBibtexFieldSet = new Set(standardBibtexFields);
 
 function readStringField(entry, key) {
   return entry.entryTags[key] ?? "";
@@ -21,6 +47,18 @@ function splitAuthors(raw) {
 
 function cleanText(value) {
   return value.replace(/[{}]/g, "").replace(/\s+/g, " ").trim();
+}
+
+function buildBibtex(entry) {
+  const normalizedTags = Object.entries(entry.entryTags).reduce((acc, [key, value]) => {
+    if (!standardBibtexFieldSet.has(key)) return acc;
+    acc[key] = value.trim();
+    return acc;
+  }, {});
+
+  return `@${entry.entryType}{${entry.citationKey},\n${Object.entries(normalizedTags)
+    .map(([key, value]) => `  ${key} = {${value}}`)
+    .join(",\n")}\n}\n`;
 }
 
 function categoryRank(category) {
@@ -38,7 +76,6 @@ const rawBib = await fs.readFile(bibPath, "utf8");
 const media = JSON.parse(await fs.readFile(mediaPath, "utf8"));
 const entries = bibtexParse.toJSON(rawBib);
 
-await fs.mkdir(downloadsDir, { recursive: true });
 await fs.mkdir(generatedDir, { recursive: true });
 
 const publications = entries
@@ -48,11 +85,7 @@ const publications = entries
     const category = readStringField(entry, "pub");
     const year = Number.parseInt(readStringField(entry, "year"), 10);
     const venue = cleanText(readStringField(entry, "journal") || readStringField(entry, "booktitle") || "");
-    const bibtex = `@${entry.entryType}{${id},\n${Object.entries(entry.entryTags)
-      .map(([key, value]) => `  ${key} = {${value}}`)
-      .join(",\n")}\n}\n`;
-    const bibFile = `${id}.bib`;
-    const bibtexDownloadPath = `/downloads/bibtex/${bibFile}`;
+    const bibtex = buildBibtex(entry);
     return {
       id,
       title: cleanText(readStringField(entry, "title")),
@@ -76,8 +109,7 @@ const publications = entries
       code: readStringField(entry, "code") || undefined,
       audio: readStringField(entry, "audio") || undefined,
       url: readStringField(entry, "url") || undefined,
-      bibtex,
-      bibtexDownloadPath
+      bibtex
     };
   })
   .sort((a, b) => {
@@ -87,11 +119,5 @@ const publications = entries
     }
     return a.title.localeCompare(b.title);
   });
-
-await Promise.all(
-  publications.map((publication) =>
-    fs.writeFile(path.join(downloadsDir, `${publication.id}.bib`), publication.bibtex, "utf8")
-  )
-);
 
 await fs.writeFile(path.join(generatedDir, "publications.json"), JSON.stringify(publications, null, 2) + "\n");

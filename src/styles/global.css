@@ -371,12 +371,15 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-family: inherit;
   border-radius: 999px;
   border: 1px solid var(--line);
   padding: 0.68rem 1rem;
   font-size: 0.92rem;
   font-weight: 700;
   text-decoration: none;
+  color: inherit;
+  cursor: pointer;
   transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
@@ -426,6 +429,116 @@ img {
 .publication-section__list {
   display: grid;
   gap: 1.25rem;
+}
+
+.bibtex-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.bibtex-modal[hidden] {
+  display: none;
+}
+
+.bibtex-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(25, 23, 19, 0.52);
+  backdrop-filter: blur(8px);
+}
+
+.bibtex-modal__dialog {
+  position: relative;
+  width: min(760px, 100%);
+  max-height: min(80vh, 820px);
+  padding: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(159, 90, 45, 0.12), transparent 36%),
+    rgba(255, 253, 248, 0.98);
+  box-shadow: 0 24px 80px rgba(25, 23, 19, 0.26);
+  overflow: auto;
+}
+
+.bibtex-modal__dialog:focus {
+  outline: 2px solid rgba(159, 90, 45, 0.35);
+  outline-offset: 3px;
+}
+
+.bibtex-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.bibtex-modal__eyebrow {
+  margin: 0 0 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.bibtex-modal__title {
+  margin: 0;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+}
+
+.bibtex-modal__icon-button {
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.72);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.bibtex-modal__code {
+  margin: 0;
+  padding: 1.1rem 1rem;
+  border: 1px solid rgba(25, 23, 19, 0.08);
+  border-radius: 22px;
+  background: #1c1814;
+  color: #f6efe6;
+  font-family: "Source Serif 4", serif;
+  font-size: 0.94rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.bibtex-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.bibtex-modal__action-button {
+  gap: 0.45rem;
+}
+
+.bibtex-modal__action-button svg {
+  width: 0.98rem;
+  height: 0.98rem;
+  flex: 0 0 auto;
+}
+
+body.has-modal-open {
+  overflow: hidden;
 }
 
 .publication-card {

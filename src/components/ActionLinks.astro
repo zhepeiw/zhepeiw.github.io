@@ -1,21 +1,34 @@
 ---
 import Icon from "./Icon.astro";
 
-interface LinkItem {
+type IconName =
+  | "audio"
+  | "bibtex"
+  | "code"
+  | "link"
+  | "paper"
+  | "poster"
+  | "slides"
+  | "video"
+  | "webpage";
+
+interface StandardLinkItem {
   label: string;
   href: string;
   newTab?: boolean;
-  icon:
-    | "audio"
-    | "bibtex"
-    | "code"
-    | "link"
-    | "paper"
-    | "poster"
-    | "slides"
-    | "video"
-    | "webpage";
+  icon: IconName;
 }
+
+interface BibtexActionItem {
+  label: string;
+  icon: "bibtex";
+  action: "bibtex";
+  publicationId: string;
+  publicationTitle: string;
+  bibtex: string;
+}
+
+type LinkItem = StandardLinkItem | BibtexActionItem;
 
 interface Props {
   links: LinkItem[];
@@ -27,10 +40,25 @@ const { links } = Astro.props;
 <div class="action-links">
   {
     links.map((link) => (
-      <a class="action-links__item" href={link.href} target="_blank" rel="noreferrer">
-        <Icon name={link.icon} />
-        <span>{link.label}</span>
-      </a>
+      "action" in link ? (
+        <button
+          class="action-links__item"
+          type="button"
+          data-bibtex-trigger
+          data-publication-id={link.publicationId}
+          data-publication-title={link.publicationTitle}
+          data-bibtex={link.bibtex}
+          aria-haspopup="dialog"
+        >
+          <Icon name={link.icon} />
+          <span>{link.label}</span>
+        </button>
+      ) : (
+        <a class="action-links__item" href={link.href} target="_blank" rel="noreferrer">
+          <Icon name={link.icon} />
+          <span>{link.label}</span>
+        </a>
+      )
     ))
   }
 </div>
