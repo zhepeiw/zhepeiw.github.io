@@ -54,14 +54,15 @@ Current deployment behavior:
 
 This repository currently uses:
 
-- `source` as the main working branch
-- `master` as the branch GitHub Pages watches for source changes
+- `dev` as the main working branch
+- `master` as the publish branch that GitHub Pages watches for source changes
+- `deprecated-jekyll` as an archive-only branch pinned to the last pre-Astro Jekyll commit (`1c11c00`)
 
 Typical local workflow:
 
 ```bash
-git checkout source
-git pull origin source
+git checkout dev
+git pull origin dev
 npm install
 npm run dev
 ```
@@ -69,25 +70,32 @@ npm run dev
 When you are ready to publish your latest changes:
 
 ```bash
-git checkout source
+git checkout dev
 git status
 git add .
 git commit -m "Update website content"
-git push origin source
-git push origin source:master
+git push origin dev
+git checkout master
+git pull origin master
+git merge dev
+git push origin master
+git checkout dev
 ```
 
 What this does:
 
-- saves your latest work on `source`
-- pushes the same source commit to `origin/source` for backup/history
-- updates `origin/master` to match `source`
+- saves your latest work on `dev`
+- updates `origin/dev` with your latest source history
+- merges `dev` into `master`
+- updates `origin/master` to trigger deployment
 - triggers `.github/workflows/deploy.yml`, which builds the Astro site and publishes `dist/`
 
 Notes:
 
 - You do not need to build `dist/` manually before publishing; GitHub Actions builds and deploys it from the `master` branch.
-- If `origin/master` has moved independently, pull or inspect it before pushing so you do not overwrite unexpected remote-only changes.
+- If `origin/master` has moved independently, pull or inspect it before merging so you do not overwrite unexpected remote-only changes.
+- If `master` has no unique commits, `git merge dev` will fast-forward; otherwise Git will create a merge commit and preserve both branch histories.
+- Do not use `deprecated-jekyll` for new work; it is kept only to preserve the old Jekyll site history.
 
 If the domain changes, update:
 
