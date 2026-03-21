@@ -1,0 +1,16 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { site } from "../data/site";
+---
+
+<MainLayout title="About">
+  <section class="prose-page">
+    <SectionHeading eyebrow="About" title="Research profile" />
+    {site.about.content.map((paragraph) => <p>{paragraph}</p>)}
+    <p>
+      Feel free to look through my <a href="/publications/">publications</a>, browse the
+      <a href="/articles/"> posts</a>, or reach out via the <a href="/contact/">contact page</a>.
+    </p>
+  </section>
+</MainLayout>

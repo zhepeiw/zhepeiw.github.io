@@ -1,0 +1,95 @@
+---
+import ActionLinks from "./ActionLinks.astro";
+
+interface Publication {
+  id: string;
+  title: string;
+  authors: string[];
+  year: number;
+  venue: string;
+  category: string;
+  featured?: boolean;
+  summary?: string;
+  image?: string;
+  imageAlt?: string;
+  imageSource?: string;
+  imagePosition?: string;
+  imageScale?: number;
+  imageFit?: string;
+  pdf?: string;
+  html?: string;
+  video?: string;
+  slides?: string;
+  poster?: string;
+  code?: string;
+  audio?: string;
+  url?: string;
+  bibtexDownloadPath?: string;
+}
+
+interface Props {
+  publication: Publication;
+}
+
+const { publication } = Astro.props;
+const hasImage = Boolean(publication.image);
+const mediaStyle = hasImage
+  ? [
+      publication.imagePosition ? `--publication-image-position: ${publication.imagePosition};` : "",
+      publication.imageScale ? `--publication-image-scale: ${publication.imageScale};` : "",
+      publication.imageFit ? `--publication-image-fit: ${publication.imageFit};` : ""
+    ]
+      .filter(Boolean)
+      .join(" ")
+  : undefined;
+const highlightedAuthors = publication.authors.map((author) => ({
+  value: author,
+  isSelf: author === "Zhepei Wang"
+}));
+const links = [
+  publication.pdf && { label: "Paper", href: publication.pdf, icon: "paper" },
+  publication.html && { label: "Webpage", href: publication.html, icon: "webpage" },
+  publication.video && { label: "Video", href: publication.video, icon: "video" },
+  publication.slides && { label: "Slides", href: publication.slides, icon: "slides" },
+  publication.poster && { label: "Poster", href: publication.poster, icon: "poster" },
+  publication.code && { label: "Code", href: publication.code, icon: "code" },
+  publication.audio && { label: "Audio", href: publication.audio, icon: "audio" },
+  publication.url && { label: "Link", href: publication.url, icon: "link" },
+  publication.bibtexDownloadPath && {
+    label: "BibTeX",
+    href: publication.bibtexDownloadPath,
+    icon: "bibtex",
+    newTab: true
+  }
+].filter(Boolean);
+---
+
+<article class:list={["publication-card", !hasImage && "publication-card--text-only"]}>
+  {
+    hasImage && (
+      <div class="publication-card__media" style={mediaStyle}>
+        <img src={publication.image} alt={publication.imageAlt ?? publication.title} loading="lazy" />
+      </div>
+    )
+  }
+  <div class="publication-card__body">
+    <p class="publication-card__meta">{publication.venue} · {publication.year}</p>
+    <h3>{publication.title}</h3>
+    <p class="publication-card__authors">
+      {
+        highlightedAuthors.map((author, index) => (
+          <>
+            {index > 0 && ", "}
+            {author.isSelf ? (
+              <strong class="publication-card__author-self">{author.value}</strong>
+            ) : (
+              <span>{author.value}</span>
+            )}
+          </>
+        ))
+      }
+    </p>
+    {publication.summary && <p class="publication-card__summary">{publication.summary}</p>}
+    {links.length > 0 && <ActionLinks links={links} />}
+  </div>
+</article>

@@ -1,0 +1,27 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import PublicationSection from "../components/PublicationSection.astro";
+import publications from "../generated/publications.json";
+
+const categories = [
+  "Peer-Reviewed Articles",
+  "Preprints",
+  "Patents and Patent Applications",
+  "Reports",
+  "Thesis"
+];
+---
+
+<MainLayout title="Publications">
+  <section class="page-header">
+    <SectionHeading title="Publications" />
+  </section>
+
+  {
+    categories.map((category) => {
+      const items = publications.filter((publication) => publication.category === category);
+      return items.length > 0 ? <PublicationSection title={category} publications={items} /> : null;
+    })
+  }
+</MainLayout>

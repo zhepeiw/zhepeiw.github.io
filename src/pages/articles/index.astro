@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+
+const posts = (await getCollection("posts")).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<MainLayout title="Posts">
+  <section class="page-header">
+    <SectionHeading
+      eyebrow="Posts"
+      title="Notes on research, tools, and implementation"
+      intro="Migrated from the original site and preserved as Markdown-first longform content with code snippets."
+    />
+  </section>
+
+  <div class="post-list">
+    {
+      posts.map((post) => (
+        <article class="post-list__item">
+          <p class="post-list__date">
+            {post.data.date.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric"
+            })}
+          </p>
+          <h2>
+            <a href={`/articles/${post.id}/`}>{post.data.title}</a>
+          </h2>
+          {post.data.tags.length > 0 && (
+            <p class="post-list__tags">{post.data.tags.join(" · ")}</p>
+          )}
+        </article>
+      ))
+    }
+  </div>
+</MainLayout>

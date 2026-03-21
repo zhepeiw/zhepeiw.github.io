@@ -1,0 +1,36 @@
+---
+import Icon from "./Icon.astro";
+
+interface LinkItem {
+  label: string;
+  href: string;
+  newTab?: boolean;
+  icon:
+    | "audio"
+    | "bibtex"
+    | "code"
+    | "link"
+    | "paper"
+    | "poster"
+    | "slides"
+    | "video"
+    | "webpage";
+}
+
+interface Props {
+  links: LinkItem[];
+}
+
+const { links } = Astro.props;
+---
+
+<div class="action-links">
+  {
+    links.map((link) => (
+      <a class="action-links__item" href={link.href} target="_blank" rel="noreferrer">
+        <Icon name={link.icon} />
+        <span>{link.label}</span>
+      </a>
+    ))
+  }
+</div>

@@ -1,0 +1,145 @@
+---
+interface Props {
+  name:
+    | "audio"
+    | "bibtex"
+    | "code"
+    | "cv"
+    | "github"
+    | "link"
+    | "linkedin"
+    | "paper"
+    | "poster"
+    | "scholar"
+    | "slides"
+    | "video"
+    | "webpage"
+    | "x";
+}
+
+const { name } = Astro.props;
+---
+
+{
+  name === "paper" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 3.75h7.5L19 8.25V20a1.25 1.25 0 0 1-1.25 1.25h-10.5A1.25 1.25 0 0 1 6 20V5A1.25 1.25 0 0 1 7.25 3.75Z" />
+      <path d="M14.5 3.75V8.5H19" />
+      <path d="M9 12h6" />
+      <path d="M9 15.5h6" />
+    </svg>
+  )
+}
+{
+  name === "cv" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 3.75h7.5L19 8.25V20a1.25 1.25 0 0 1-1.25 1.25h-10.5A1.25 1.25 0 0 1 6 20V5A1.25 1.25 0 0 1 7.25 3.75Z" />
+      <path d="M14.5 3.75V8.5H19" />
+      <path d="M9 12h6" />
+      <path d="M9 15.5h6" />
+    </svg>
+  )
+}
+{
+  name === "scholar" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+      <path d="m12 3 9 5-9 5-9-5 9-5Zm-6.75 8.86V16c0 .53.3 1.01.77 1.26 1.75.92 3.9 1.49 5.98 1.49 2.08 0 4.23-.57 5.98-1.49.47-.25.77-.73.77-1.26v-4.14L12 15.6l-6.75-3.74Zm14.25-.75v6.64h1.5v-5.81l1.5-.83L12 5.31l-10.5 5.8 1.5.83V17.75h1.5v-6.64L12 15.24l7.5-4.13Z" />
+    </svg>
+  )
+}
+{
+  name === "webpage" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="8.25" />
+      <path d="M3.75 12h16.5" />
+      <path d="M12 3.75c2.6 2.23 4.12 5.17 4.12 8.25S14.6 18.02 12 20.25c-2.6-2.23-4.12-5.17-4.12-8.25S9.4 5.98 12 3.75Z" />
+    </svg>
+  )
+}
+{
+  name === "video" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3.75" y="6.5" width="11.5" height="11" rx="1.75" />
+      <path d="m15.25 10 4.5-2.5v9l-4.5-2.5" />
+    </svg>
+  )
+}
+{
+  name === "slides" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="5" width="16" height="10" rx="1.5" />
+      <path d="M12 15v4" />
+      <path d="M8.5 19h7" />
+      <path d="M7.5 8h9" />
+    </svg>
+  )
+}
+{
+  name === "poster" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="6" y="3.75" width="12" height="16.5" rx="1.5" />
+      <path d="M9 8h6" />
+      <path d="M9 11.5h6" />
+      <path d="M9 15h4" />
+    </svg>
+  )
+}
+{
+  name === "code" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m8.25 8.25-3.5 3.75 3.5 3.75" />
+      <path d="m15.75 8.25 3.5 3.75-3.5 3.75" />
+      <path d="M13.25 5.5 10.75 18.5" />
+    </svg>
+  )
+}
+{
+  name === "audio" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 6.25 7.75 9H5.5A1.75 1.75 0 0 0 3.75 10.75v2.5C3.75 14.22 4.53 15 5.5 15h2.25L11 17.75V6.25Z" />
+      <path d="M14.5 9.5a3.5 3.5 0 0 1 0 5" />
+      <path d="M16.75 7a6.75 6.75 0 0 1 0 10" />
+    </svg>
+  )
+}
+{
+  name === "link" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 14 14 10" />
+      <path d="M8.75 16.25H7a3.25 3.25 0 1 1 0-6.5h1.75" />
+      <path d="M15.25 7.75H17a3.25 3.25 0 1 1 0 6.5h-1.75" />
+    </svg>
+  )
+}
+{
+  name === "bibtex" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8.5 7.25H7A2.25 2.25 0 0 0 4.75 9.5v1a2 2 0 0 0 2 2 2 2 0 0 1 2 2v1A2.25 2.25 0 0 1 6.5 17.75H5" />
+      <path d="M15.5 7.25H17A2.25 2.25 0 0 1 19.25 9.5v1a2 2 0 0 1-2 2 2 2 0 0 0-2 2v1A2.25 2.25 0 0 0 17.5 17.75H19" />
+      <path d="M11 7.5v9" />
+      <path d="M9.25 9.25h3.5" />
+      <path d="M9.25 14.75h3.5" />
+    </svg>
+  )
+}
+{
+  name === "github" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+      <path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.55 0-.27-.01-.98-.02-1.92-3.13.68-3.8-1.51-3.8-1.51-.52-1.3-1.26-1.65-1.26-1.65-1.03-.7.08-.69.08-.69 1.13.08 1.73 1.17 1.73 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.52-2.5-.28-5.14-1.25-5.14-5.58 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.42.1-2.96 0 0 .95-.3 3.1 1.15a10.67 10.67 0 0 1 5.65 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.12 2.96.72.79 1.15 1.79 1.15 3.02 0 4.34-2.64 5.29-5.15 5.57.41.35.77 1.03.77 2.08 0 1.5-.01 2.71-.01 3.08 0 .3.2.66.78.55A11.25 11.25 0 0 0 12 .75Z" />
+    </svg>
+  )
+}
+{
+  name === "linkedin" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+      <path d="M5.25 8.25A1.5 1.5 0 1 1 5.25 5.25a1.5 1.5 0 0 1 0 3Zm1.12 2.25H4.13V19.5h2.24v-9Zm3.55 0H7.74V19.5h2.18v-4.72c0-1.24.24-2.44 1.78-2.44 1.52 0 1.54 1.42 1.54 2.52v4.64h2.19v-5.1c0-2.5-.54-4.42-3.46-4.42-1.4 0-2.33.77-2.71 1.49h-.04v-1.27Z" />
+    </svg>
+  )
+}
+{
+  name === "x" && (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+      <path d="M14.2 10.31 20.98 2.5h-1.61l-5.88 6.77L8.8 2.5H3.38l7.11 10.35L3.38 21.5h1.61l6.22-7.16 4.92 7.16h5.42L14.2 10.31Zm-2.17 2.5-.72-1.03L5.55 3.53H8l4.65 6.65.72 1.03 6.04 8.65h-2.45l-4.93-7.05Z" />
+    </svg>
+  )
+}

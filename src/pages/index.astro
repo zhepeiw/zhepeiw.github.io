@@ -1,0 +1,85 @@
+---
+import { getCollection, render } from "astro:content";
+import MainLayout from "../layouts/MainLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import PublicationSection from "../components/PublicationSection.astro";
+import Icon from "../components/Icon.astro";
+import { site } from "../data/site";
+import publications from "../generated/publications.json";
+
+const selectedOrder = new Map(
+  site.homepage.selectedPublicationIds.map((id, index) => [id, index])
+);
+const featured = site.homepage.selectedPublicationIds
+  .map((id) => publications.find((publication) => publication.id === id))
+  .filter(Boolean)
+  // Keep the shortlist manual, but render it newest-first on the homepage.
+  .sort((a, b) => {
+    const yearDifference = Number(b.year ?? 0) - Number(a.year ?? 0);
+    if (yearDifference !== 0) return yearDifference;
+
+    return (selectedOrder.get(a.id) ?? 0) - (selectedOrder.get(b.id) ?? 0);
+  });
+const news = (await getCollection("news")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+const recentNews = await Promise.all(
+  news.slice(0, 3).map(async (item) => ({
+    item,
+    rendered: await render(item)
+  }))
+);
+---
+
+<MainLayout>
+  <section class="hero">
+    <div class="hero__image">
+      <img src={site.homepage.profileImage} alt={`Portrait of ${site.homepage.name}`} />
+    </div>
+    <div class="hero__identity">
+      <h1>{site.homepage.name}</h1>
+      <div class="hero__roles">
+        {site.homepage.roleLines.map((line) => <p>{line}</p>)}
+      </div>
+      <div class="hero__emails">
+        {site.homepage.emailLines.map((line) => <p>{line}</p>)}
+      </div>
+      <div class="hero__links">
+        {
+          site.homepage.socialLinks.map((link) => (
+            <a class="hero__inline-link" href={link.href} target="_blank" rel="noreferrer" aria-label={link.label} title={link.label}>
+              <Icon name={link.icon} />
+              <span>{link.label}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <div class="hero__intro">
+      {site.homepage.intro.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </section>
+
+  <section class="stack">
+    <SectionHeading title="Selected Work" />
+    <PublicationSection publications={featured} />
+  </section>
+
+  <section class="stack">
+    <SectionHeading title="Updates" />
+    <div class="news-list">
+      {
+        recentNews.map(({ item, rendered }) => (
+          <article class="news-list__item">
+            <p class="news-list__date">
+              {item.data.date.toLocaleDateString("en-US", { year: "numeric", month: "short" })}
+            </p>
+            <div class="news-list__content">
+              <rendered.Content />
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</MainLayout>

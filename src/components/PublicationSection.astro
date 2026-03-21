@@ -1,0 +1,44 @@
+---
+import PublicationCard from "./PublicationCard.astro";
+
+interface Publication {
+  id: string;
+  title: string;
+  authors: string[];
+  year: number;
+  venue: string;
+  category: string;
+  featured?: boolean;
+  summary?: string;
+  image?: string;
+  imageAlt?: string;
+  imageSource?: string;
+  pdf?: string;
+  html?: string;
+  video?: string;
+  slides?: string;
+  poster?: string;
+  code?: string;
+  audio?: string;
+  url?: string;
+  bibtexDownloadPath?: string;
+}
+
+interface Props {
+  title?: string;
+  publications: Publication[];
+}
+
+const { title, publications } = Astro.props;
+---
+
+<section class="publication-section">
+  {title && (
+    <div class="publication-section__header">
+      <h2>{title}</h2>
+    </div>
+  )}
+  <div class="publication-section__list">
+    {publications.map((publication) => <PublicationCard publication={publication} />)}
+  </div>
+</section>

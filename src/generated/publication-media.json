@@ -1,0 +1,143 @@
+{
+  "generative-first-audio-autoencoder": {
+    "image": "/assets/publications/generative-first-audio-autoencoder.jpg",
+    "imageAlt": "Representative figure for A Generative-First Neural Audio Autoencoder",
+    "imageSource": "Extracted from paper PDF",
+    "summary": null
+  },
+  "metadata-captioning": {
+    "image": "/assets/publications/metadata-captioning.jpg",
+    "imageAlt": "Representative figure for Rethinking Music Captioning with Music Metadata LLMs",
+    "imageSource": "Extracted from paper PDF",
+    "imagePosition": "50% 50%",
+    "imageScale": 0.96,
+    "imageFit": "contain",
+    "summary": null
+  },
+  "kumar2026timestamped": {
+    "image": "/assets/publications/kumar2026timestamped.jpg",
+    "imageAlt": "Representative figure for Timestamped Audio Captioning",
+    "imageSource": "Extracted from paper PDF",
+    "summary": null
+  },
+  "clap_leak": {
+    "image": "/assets/publications/clap_leak.jpg",
+    "imageAlt": "Representative figure for On Class Separability Pitfalls In Audio-Text Contrastive Zero-Shot Learning",
+    "imageSource": "Extracted from paper PDF",
+    "summary": null
+  },
+  "imagic-tango": {
+    "image": "/assets/publications/imagic_tango.png",
+    "imageAlt": "Representative figure for Audio Editing with Non-Rigid Text Prompts",
+    "imageSource": "Extracted from paper PDF",
+    "imagePosition": "50% 50%",
+    "imageScale": 0.96,
+    "imageFit": "contain",
+    "summary": null
+  },
+  "UPN": {
+    "image": "/assets/publications/UPN.png",
+    "imageAlt": "Representative figure for A Framework for Unified Real-time Personalized and Non-Personalized Speech Enhancement",
+    "imageSource": "Manual override",
+    "imagePosition": "50% 50%",
+    "imageScale": 0.96,
+    "imageFit": "contain",
+    "summary": null
+  },
+  "UICLAP": {
+    "image": "/assets/publications/UICLAP.png",
+    "imageAlt": "Representative figure for Unsupervised Improvement of Audio-Text Cross-Modal Representations",
+    "imageSource": "Extracted from paper PDF",
+    "imagePosition": "50% 50%",
+    "imageScale": 0.96,
+    "imageFit": "contain",
+    "summary": null
+  },
+  "Tzinis2021ComputeAM": {
+    "image": "/assets/publications/Tzinis2021ComputeAM.jpg",
+    "imageAlt": "Representative figure for Compute and Memory Efficient Universal Sound Source Separation",
+    "imageSource": "Extracted from paper PDF",
+    "summary": null
+  },
+  "ImprovedSVS": {
+    "image": "/assets/publications/ImprovedSVS.jpg",
+    "imageAlt": "Representative figure for Improved Singing Voice Separation with Chromagram-Based Pitch-Aware Remixing",
+    "imageSource": "Extracted from paper PDF",
+    "summary": null
+  },
+  "CSSL": {
+    "image": "/assets/publications/CSSL.png",
+    "imageAlt": "Representative figure for Learning Representations for New Sound Classes With Continual Self-Supervised Learning",
+    "imageSource": "Extracted from paper PDF",
+    "imagePosition": "50% 50%",
+    "imageScale": 0.96,
+    "imageFit": "contain",
+    "summary": null
+  },
+  "SemiTSE": {
+    "image": "/assets/publications/semi_tse.png",
+    "imageAlt": "Representative figure for Semi-supervised Time Domain Target Speaker Extraction with Attention",
+    "imageSource": "Extracted from paper PDF",
+    "imagePosition": "50% 50%",
+    "imageScale": 0.96,
+    "imageFit": "contain",
+    "summary": null
+  },
+  "Wang2021SemiSupervisedSV": {
+    "image": "/assets/publications/semi_svs.png",
+    "imageAlt": "Representative figure for Semi-Supervised Singing Voice Separation With Noisy Self-Training",
+    "imageSource": "Extracted from paper PDF",
+    "imagePosition": "50% 50%",
+    "imageScale": 0.96,
+    "imageFit": "contain",
+    "summary": null
+  },
+  "Tzinis2021SeparateBT": {
+    "image": "/assets/publications/Tzinis2021SeparateBT.jpg",
+    "imageAlt": "Representative figure for Separate But Together: Unsupervised Federated Learning for Speech Enhancement from Non-IID Data",
+    "imageSource": "Extracted from paper PDF",
+    "summary": null
+  },
+  "Wang2021SoundED": {
+    "image": "/assets/publications/hidact.png",
+    "imageAlt": "Representative figure for Sound Event Detection with Adaptive Frequency Selection",
+    "imageSource": "Extracted from paper PDF",
+    "imagePosition": "50% 50%",
+    "imageScale": 0.96,
+    "imageFit": "contain",
+    "summary": null
+  },
+  "Tzinis2020SudoR": {
+    "image": "/assets/publications/sudormrf.png",
+    "imageAlt": "Representative figure for Sudo RM -RF: Efficient Networks for Universal Audio Source Separation",
+    "imageSource": "Extracted from paper PDF",
+    "imagePosition": "50% 50%",
+    "imageScale": 0.96,
+    "imageFit": "contain",
+    "summary": null
+  },
+  "Tzinis2020TwoStepSS": {
+    "image": "/assets/publications/Tzinis2020TwoStepSS.jpg",
+    "imageAlt": "Representative figure for Two-Step Sound Source Separation: Training On Learned Latent Targets",
+    "imageSource": "Extracted from paper PDF",
+    "summary": null
+  },
+  "Wang1910:Continual": {
+    "image": "/assets/publications/generative_replay.png",
+    "imageAlt": "Representative figure for Continual Learning of New Sound Classes Using Generative Replay",
+    "imageSource": "Extracted from paper PDF",
+    "imagePosition": "50% 50%",
+    "imageScale": 0.96,
+    "imageFit": "contain",
+    "summary": null
+  },
+  "multiview-clf": {
+    "image": "/assets/publications/MVN.png",
+    "imageAlt": "Representative figure for Multi-View Networks For Multi-Channel Audio Classification",
+    "imageSource": "Extracted from paper PDF",
+    "imagePosition": "50% 50%",
+    "imageScale": 0.96,
+    "imageFit": "contain",
+    "summary": null
+  }
+}

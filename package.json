@@ -1,0 +1,34 @@
+{
+  "name": "zhepeiw.github.io",
+  "version": "1.0.0",
+  "description": "Personal Website for Zhepei",
+  "scripts": {
+    "sync:data": "node scripts/build-publications.mjs",
+    "sync:media": "python3 scripts/fetch_publication_media.py && npm run sync:data",
+    "predev": "npm run sync:data",
+    "dev": "astro dev",
+    "prebuild": "npm run sync:data",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhepeiw/zhepeiw.github.io.git"
+  },
+  "keywords": [],
+  "author": "Zhepei Wang",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/zhepeiw/zhepeiw.github.io/issues"
+  },
+  "homepage": "https://github.com/zhepeiw/zhepeiw.github.io#readme",
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.2",
+    "@astrojs/sitemap": "^3.7.1",
+    "astro": "^6.0.8",
+    "bibtex-parse-js": "^0.0.24",
+    "gray-matter": "^4.0.3",
+    "sharp": "^0.34.5"
+  }
+}

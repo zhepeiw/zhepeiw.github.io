@@ -1,0 +1,14 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import { site } from "../../data/site";
+---
+
+<MainLayout title="Contact">
+  <section class="prose-page">
+    <SectionHeading eyebrow="Contact" title="Get in touch" />
+    <p>{site.contact.content}</p>
+    <p>Email: {site.footerEmail.display}</p>
+    <p>{site.location}</p>
+  </section>
+</MainLayout>

@@ -1,0 +1,70 @@
+---
+import "../styles/global.css";
+import { site } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = site.description } = Astro.props;
+const pageTitle = title ? `${title} | ${site.title}` : site.title;
+const pathname = Astro.url.pathname;
+const lastUpdated = new Intl.DateTimeFormat("en-US", {
+  month: "2-digit",
+  year: "numeric"
+}).format(new Date());
+
+function isActive(href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(href);
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/assets/images/logo/favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="top">
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="site-header__inner">
+          <a class="site-header__brand" href="/">{site.title}</a>
+          <nav class="site-nav" aria-label="Primary">
+            {
+              site.navigation.map((item) => (
+                <a class={isActive(item.href) ? "is-active" : undefined} href={item.href}>
+                  {item.label}
+                </a>
+              ))
+            }
+          </nav>
+        </div>
+      </header>
+      <main class="site-main">
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <p>{site.title}</p>
+          <div class="site-footer__meta">
+            <p>{site.footerEmail.display}</p>
+            <p>Last Updated: {lastUpdated}</p>
+            <a href="#top">Back to top</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
