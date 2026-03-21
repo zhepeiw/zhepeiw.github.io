@@ -7,8 +7,7 @@ export const site = {
     name: "Zhepei Wang",
     profileImage: "/assets/images/profile_2026-03-20.jpg",
     roleLines: [
-      "Researcher, Adobe Research",
-      "MusicAI Group"
+      "Researcher, Adobe Research"
     ],
     emailLines: [
       "zhepeiw03 [at] gmail [dot] com",
